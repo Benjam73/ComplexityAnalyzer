@@ -60,7 +60,7 @@ public class DichoromicSearch {
 
 	public static void main(String[] args) {
 		try {
-			HashMap<Integer, Long> samples = getSamples(6);
+			HashMap<Integer, Long> samples = getSamples(Features.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(

@@ -79,6 +79,7 @@ public class Features {
 
 		try {
 			HashMap<Integer, Long> samples = MergeSort.getSamples(nbSample);
+
 			HashMap<long[], Long> featuredSamples = makeFeatures(samples);
 
 			for (Map.Entry<long[], Long> entry : featuredSamples.entrySet()) {

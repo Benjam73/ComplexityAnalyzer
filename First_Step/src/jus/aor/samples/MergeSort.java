@@ -72,7 +72,7 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		try {
-			HashMap<Integer, Long> samples = getSamples(3);
+			HashMap<Integer, Long> samples = getSamples(Features.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(
