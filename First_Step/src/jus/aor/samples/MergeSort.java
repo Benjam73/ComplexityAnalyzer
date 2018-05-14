@@ -71,24 +71,6 @@ public class MergeSort {
 	}
 
 	public static void main(String[] args) {
-		// int n = 100;
-		// int[] tab = new int[n];
-		// for (int i = 0; i < n; i++) {
-		// tab[i] = (int) (Math.random() * 2500);
-		// }
-		//
-		// System.out.println("Before sort : \n");
-		// for (int i = 0; i < n; i++) {
-		// System.out.println("tab[" + i + "] = " + tab[i]);
-		// }
-		//
-		// tab = mergeSort(tab);
-		//
-		// System.out.println("\n After sort : \n");
-		// for (int i = 0; i < n; i++) {
-		// System.out.println("tab[" + i + "] = " + tab[i]);
-		// }
-
 		try {
 			HashMap<Integer, Long> samples = getSamples(3);
 
