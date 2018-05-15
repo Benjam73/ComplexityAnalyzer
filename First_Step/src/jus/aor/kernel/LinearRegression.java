@@ -1,6 +1,10 @@
-package jus.aor.samples;
+package jus.aor.kernel;
 
 import java.util.HashMap;
+
+import jus.aor.samples.BubbleSort;
+import jus.aor.samples.DichoromicSearch;
+import jus.aor.samples.MergeSort;
 
 public class LinearRegression {
 

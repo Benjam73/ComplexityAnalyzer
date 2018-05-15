@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import jus.aor.kernel.Features;
+
 public class DichoromicSearch {
 
 	public static boolean isPresent(int[] tab, int element) {
