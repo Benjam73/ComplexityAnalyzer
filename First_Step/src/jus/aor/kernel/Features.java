@@ -18,12 +18,12 @@ public class Features {
 		for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 			long[] features = new long[precisionNeeded];
 			int currentKey = entry.getKey();
-			features[0] = currentKey;
-			features[1] = (long) Math.log(currentKey);
-			features[2] = (long) (currentKey * Math.log(currentKey));
-			features[3] = (currentKey * currentKey);
-			features[4] = (long) (currentKey * currentKey * Math.log(currentKey));
-			features[5] = (long) ((long) currentKey * (long) currentKey * (long) currentKey);
+
+			features[0] = (long) Math.log(currentKey);
+			features[1] = currentKey;
+			for (int i = 2; i < precisionNeeded; i++) {
+				features[i] = (long) ((long) features[i - 2] * (long) currentKey);
+			}
 
 			featuredMap.put(features, entry.getValue());
 		}
@@ -73,7 +73,7 @@ public class Features {
 		for (Map.Entry<long[], Long> entry : featuredMap.entrySet()) {
 
 			ScaledFeaturedMapTmp.put(scaled[i], entry.getValue());
-			ScaledFeaturedMap.put(new Long(entry.getKey()[0]), ScaledFeaturedMapTmp);
+			ScaledFeaturedMap.put(new Long(entry.getKey()[1]), ScaledFeaturedMapTmp);
 
 			i++;
 			ScaledFeaturedMapTmp = new HashMap<>();
@@ -92,9 +92,9 @@ public class Features {
 			HashMap<long[], Long> featuredSamples = makeFeatures(samples);
 
 			for (Map.Entry<long[], Long> entry : featuredSamples.entrySet()) {
-				System.out.println(entry.getKey()[0] + "\n");
+				System.out.println(entry.getKey()[1] + "\n");
 				for (int i = 0; i < entry.getKey().length; i++) {
-					System.out.println(i + " -> " + entry.getKey()[i] + "Value : " + entry.getValue());
+					System.out.println(i + " -> " + entry.getKey()[i] + " Value : " + entry.getValue());
 				}
 				System.out.println("\n");
 

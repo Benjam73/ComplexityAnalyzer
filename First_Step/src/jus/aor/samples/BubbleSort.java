@@ -61,6 +61,19 @@ public class BubbleSort {
 		}
 	}
 
+	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
+		HashMap<Integer, Long> samples;
+		try {
+			samples = BubbleSort.getSamples(Features.nbSample);
+			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
+			return Features.scaling(featuredSamples);
+		} catch (Exception e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public static void main(String[] args) {
 		try {
 			HashMap<Integer, Long> samples = getSamples(Features.nbSample);
