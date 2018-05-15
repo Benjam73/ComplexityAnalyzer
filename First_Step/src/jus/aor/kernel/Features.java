@@ -31,7 +31,7 @@ public class Features {
 		return featuredMap;
 	}
 
-	public static HashMap<float[], Long> scaling(HashMap<long[], Long> featuredMap) {
+	public static HashMap<Long, HashMap<float[], Long>> scaling(HashMap<long[], Long> featuredMap) {
 
 		long[][] tmp = new long[nbSample][precisionNeeded];
 		float[][] scaled = new float[nbSample][precisionNeeded];
@@ -65,12 +65,19 @@ public class Features {
 			}
 		}
 
-		HashMap<float[], Long> ScaledFeaturedMap = new HashMap<>();
+		HashMap<float[], Long> ScaledFeaturedMapTmp = new HashMap<>();
 
+		HashMap<Long, HashMap<float[], Long>> ScaledFeaturedMap = new HashMap<>();
+
+		i = 0;
 		for (Map.Entry<long[], Long> entry : featuredMap.entrySet()) {
-			for (i = 0; i < nbSample; i++) {
-				ScaledFeaturedMap.put(scaled[i], entry.getValue());
-			}
+
+			ScaledFeaturedMapTmp.put(scaled[i], entry.getValue());
+			ScaledFeaturedMap.put(new Long(entry.getKey()[0]), ScaledFeaturedMapTmp);
+
+			i++;
+			ScaledFeaturedMapTmp = new HashMap<>();
+
 		}
 
 		return ScaledFeaturedMap;
@@ -87,7 +94,7 @@ public class Features {
 			for (Map.Entry<long[], Long> entry : featuredSamples.entrySet()) {
 				System.out.println(entry.getKey()[0] + "\n");
 				for (int i = 0; i < entry.getKey().length; i++) {
-					System.out.println(i + " -> " + entry.getKey()[i]);
+					System.out.println(i + " -> " + entry.getKey()[i] + "Value : " + entry.getValue());
 				}
 				System.out.println("\n");
 
@@ -95,14 +102,18 @@ public class Features {
 
 			System.out.println("\n \n ----- AFTER SCALING ----- \n \n");
 
-			HashMap<float[], Long> ScaledFeaturedSamples = scaling(featuredSamples);
+			HashMap<Long, HashMap<float[], Long>> ScaledFeaturedSamples = scaling(featuredSamples);
 
-			for (Map.Entry<float[], Long> entry : ScaledFeaturedSamples.entrySet()) {
-				for (int i = 0; i < entry.getKey().length; i++) {
-					System.out.println(i + " -> " + entry.getKey()[i]);
+			for (Map.Entry<Long, HashMap<float[], Long>> entry1 : ScaledFeaturedSamples.entrySet()) {
+
+				for (Map.Entry<float[], Long> entry : entry1.getValue().entrySet()) {
+					System.out.println(entry1.getKey() + "\n");
+					for (int i = 0; i < entry.getKey().length; i++) {
+						System.out.println(i + " -> " + entry.getKey()[i] + " Value : " + entry.getValue());
+					}
+
 				}
 				System.out.println("\n");
-
 			}
 
 		} catch (Exception e) {
