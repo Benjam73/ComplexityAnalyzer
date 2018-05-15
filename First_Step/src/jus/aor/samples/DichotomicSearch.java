@@ -6,7 +6,7 @@ import java.util.Map;
 
 import jus.aor.kernel.Features;
 
-public class DichoromicSearch {
+public class DichotomicSearch {
 
 	public static boolean isPresent(int[] tab, int element) {
 		int left = 0;
@@ -63,7 +63,7 @@ public class DichoromicSearch {
 	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = DichoromicSearch.getSamples(Features.nbSample);
+			samples = DichotomicSearch.getSamples(Features.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
