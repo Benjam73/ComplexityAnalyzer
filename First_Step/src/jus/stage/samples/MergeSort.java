@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jus.stage.kernel.Features;
+import jus.stage.utils.Parameters;
 
 public class MergeSort {
 
@@ -75,7 +76,7 @@ public class MergeSort {
 	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = MergeSort.getSamples(Features.nbSample);
+			samples = MergeSort.getSamples(Parameters.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
@@ -87,7 +88,7 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		try {
-			HashMap<Integer, Long> samples = getSamples(Features.nbSample);
+			HashMap<Integer, Long> samples = getSamples(Parameters.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(
