@@ -62,7 +62,7 @@ public class BubbleSort {
 		}
 	}
 
-	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
+	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
 			samples = BubbleSort.getSamples(Parameters.nbSample);

@@ -14,15 +14,15 @@ import jus.stage.utils.Parameters;
 
 public class LinearRegression {
 
-	public static double[][] makeXMatrix(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
+	public static double[][] makeXMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
 
 		double[][] result = new double[Parameters.nbSample][Parameters.precisionNeeded];
 
 		int k = 0;
 
-		for (Map.Entry<Long, HashMap<float[], Long>> entry1 : featuredScaledMap.entrySet()) {
+		for (Map.Entry<Long, HashMap<double[], Long>> entry1 : featuredScaledMap.entrySet()) {
 
-			for (Map.Entry<float[], Long> entry : entry1.getValue().entrySet()) {
+			for (Map.Entry<double[], Long> entry : entry1.getValue().entrySet()) {
 
 				for (int i = 0; i < entry.getKey().length; i++) {
 					result[k][i] = entry.getKey()[i];
@@ -36,15 +36,15 @@ public class LinearRegression {
 		return result;
 	}
 
-	public static double[] makeYMatrix(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
+	public static double[] makeYMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
 
 		double[] result = new double[Parameters.nbSample];
 
 		int k = 0;
 
-		for (Map.Entry<Long, HashMap<float[], Long>> entry1 : featuredScaledMap.entrySet()) {
+		for (Map.Entry<Long, HashMap<double[], Long>> entry1 : featuredScaledMap.entrySet()) {
 
-			for (Map.Entry<float[], Long> entry : entry1.getValue().entrySet()) {
+			for (Map.Entry<double[], Long> entry : entry1.getValue().entrySet()) {
 
 				result[k] = entry.getValue();
 				k++;
@@ -136,27 +136,13 @@ public class LinearRegression {
 	public static Matrix finalProduct(Matrix X, Matrix Y) {
 
 		Matrix Xtranspose = transposeMatrix(X);
+		Matrix XXtranspose = matrixProduct(Xtranspose, X);
+		Matrix XtransposeY = matrixProduct(Xtranspose, Y);
+		Matrix inverseXXtranspose = matrixInversion(XXtranspose);
+		Matrix result = matrixProduct(inverseXXtranspose, XtransposeY);
 
-		Matrix inverse = matrixInversion(matrixProduct(X, Xtranspose));
-		Matrix tmp = matrixProduct(Xtranspose, inverse);
-
-		return matrixProduct(tmp, Y);
-
-	}
-
-	private static Matrix concat(Matrix m0, Matrix m1) {
-		return new Matrix(combine(m0.getArray(), m1.getArray()));
-	}
-
-	private static double[][] combine(double m0[][], double m1[][]) {
-		double result[][] = new double[m0.length + m1.length][];
-		for (int i = 0; i < m0.length; i++) {
-			result[i] = m0[i].clone();
-		}
-		for (int i = 0; i < m1.length; i++) {
-			result[m0.length + i] = m1[i].clone();
-		}
 		return result;
+
 	}
 
 	/**
@@ -187,7 +173,7 @@ public class LinearRegression {
 	}
 
 	public static void run(String classRequired) throws Exception {
-		HashMap<Long, HashMap<float[], Long>> featuredScaledMap = new HashMap<>();
+		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = new HashMap<>();
 
 		try {
 			Class<?> algorithm = Class.forName("jus.stage.samples." + classRequired);
@@ -262,25 +248,17 @@ public class LinearRegression {
 	}
 
 	public static void main(String[] args) throws Exception {
-
-		try {
-			run(args[0]);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		HashMap<Long, HashMap<float[], Long>> featuredScaledMap = MergeSort.getObservation();
+		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = DichotomicSearch.getObservation();
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
 
-		double[][] Xbis = makeXMatrix(featuredScaledMap);
+		System.out.println("X : \n");
+		X.print(X.getRowDimension(), X.getColumnDimension());
 
 		Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
 
 		X = columnAppend(var, X);
-
-		double[] Key = getKey(featuredScaledMap);
 
 		Matrix result = finalProduct(X, Y);
 
@@ -316,6 +294,17 @@ public class LinearRegression {
 		}
 
 		System.out.println("Average complexity of the current Algortihm : " + getComplexity(complexity));
+
+		// Matrix X = new Matrix(new double[][] { { 4, 0, 1 }, { 7, 1, 1 }, { 6,
+		// 1, 0 }, { 2, 0, 0 }, { 3, 0, 1 } });
+		// Matrix Y = new Matrix(new double[][] { { 27 }, { 29 }, { 23 }, { 20
+		// }, { 21 } });
+		// Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
+		//
+		// X = columnAppend(var, X);
+		// Matrix result = finalProduct(X, Y);
+		// result.print(result.getRowDimension(), result.getColumnDimension());
+
 	}
 
 	private static String getComplexity(int i) {

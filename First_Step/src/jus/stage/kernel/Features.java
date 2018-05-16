@@ -3,7 +3,7 @@ package jus.stage.kernel;
 import java.util.HashMap;
 import java.util.Map;
 
-import jus.stage.samples.MergeSort;
+import jus.stage.samples.BubbleSort;
 import jus.stage.utils.Parameters;
 
 public class Features {
@@ -27,10 +27,10 @@ public class Features {
 		return featuredMap;
 	}
 
-	public static HashMap<Long, HashMap<float[], Long>> scaling(HashMap<long[], Long> featuredMap) {
+	public static HashMap<Long, HashMap<double[], Long>> scaling(HashMap<long[], Long> featuredMap) {
 
 		long[][] tmp = new long[Parameters.nbSample][Parameters.precisionNeeded];
-		float[][] scaled = new float[Parameters.nbSample][Parameters.precisionNeeded];
+		double[][] scaled = new double[Parameters.nbSample][Parameters.precisionNeeded];
 		int i = 0;
 		for (Map.Entry<long[], Long> entry : featuredMap.entrySet()) {
 
@@ -57,14 +57,15 @@ public class Features {
 			}
 			mean /= Parameters.precisionNeeded;
 			for (int k = 0; k < Parameters.precisionNeeded; k++) {
-				scaled[i][k] = (float) ((float) (tmp[i][k] - mean) / (float) (max - min));
+				scaled[i][k] = (double) ((tmp[i][k] - mean));
+				/* / (float) (max - min)) */
 				// scaled[i][k] = tmp[i][k];
 			}
 		}
 
-		HashMap<float[], Long> ScaledFeaturedMapTmp = new HashMap<>();
+		HashMap<double[], Long> ScaledFeaturedMapTmp = new HashMap<>();
 
-		HashMap<Long, HashMap<float[], Long>> ScaledFeaturedMap = new HashMap<>();
+		HashMap<Long, HashMap<double[], Long>> ScaledFeaturedMap = new HashMap<>();
 
 		i = 0;
 		for (Map.Entry<long[], Long> entry : featuredMap.entrySet()) {
@@ -84,7 +85,7 @@ public class Features {
 	public static void main(String[] args) {
 
 		try {
-			HashMap<Integer, Long> samples = MergeSort.getSamples(Parameters.nbSample);
+			HashMap<Integer, Long> samples = BubbleSort.getSamples(Parameters.nbSample);
 
 			HashMap<long[], Long> featuredSamples = makeFeatures(samples);
 
@@ -99,11 +100,11 @@ public class Features {
 
 			System.out.println("\n \n ----- AFTER SCALING ----- \n \n");
 
-			HashMap<Long, HashMap<float[], Long>> ScaledFeaturedSamples = scaling(featuredSamples);
+			HashMap<Long, HashMap<double[], Long>> ScaledFeaturedSamples = scaling(featuredSamples);
 
-			for (Map.Entry<Long, HashMap<float[], Long>> entry1 : ScaledFeaturedSamples.entrySet()) {
+			for (Map.Entry<Long, HashMap<double[], Long>> entry1 : ScaledFeaturedSamples.entrySet()) {
 
-				for (Map.Entry<float[], Long> entry : entry1.getValue().entrySet()) {
+				for (Map.Entry<double[], Long> entry : entry1.getValue().entrySet()) {
 					System.out.println(entry1.getKey() + "\n");
 					for (int i = 0; i < entry.getKey().length; i++) {
 						System.out.println(i + " -> " + entry.getKey()[i] + " Value : " + entry.getValue());
