@@ -1,32 +1,43 @@
-package jus.aor.samples;
+package jus.stage.samples;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import jus.aor.kernel.Features;
+import jus.stage.kernel.Features;
 
-public class BubbleSort {
+public class MergeSort {
 
-	public static int[] bubbleSort(int[] T) {
-		int i, j;
-		for (i = T.length; i != 0; i--) {
-			for (j = 0; j < i - 1; j++) {
-				if (T[j + 1] < T[j]) {
-					exchange(T, j, j + 1);
-				}
+	public static int[] mergeSort(int[] tab) {
 
+		if (tab.length > 1) {
+			int[] leftTab = Arrays.copyOfRange(tab, 0, tab.length / 2);
+			int[] rightTab = Arrays.copyOfRange(tab, tab.length / 2, tab.length);
+			leftTab = mergeSort(leftTab);
+			rightTab = mergeSort(rightTab);
+			return Merge(leftTab, rightTab);
+
+		} else {
+			return tab;
+		}
+	}
+
+	private static int[] Merge(int[] leftTab, int[] rightTab) {
+		int totalLength = leftTab.length + rightTab.length;
+		int[] tab = new int[totalLength];
+		int index1 = 0, index2 = 0;
+
+		for (int i = 0; i < totalLength; i++) {
+			if (index1 < leftTab.length && (index2 == rightTab.length || leftTab[index1] < rightTab[index2])) {
+				tab[i] = leftTab[index1];
+				index1++;
+			} else {
+				tab[i] = rightTab[index2];
+				index2++;
 			}
 		}
 
-		return T;
-	}
-
-	private static void exchange(int[] tab, int j, int i) {
-		int tmp;
-		tmp = tab[j];
-		tab[j] = tab[i];
-		tab[i] = tmp;
+		return tab;
 	}
 
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
@@ -47,7 +58,7 @@ public class BubbleSort {
 				for (int k = 0; k < nbIteration; k++) {
 					int[] tmp = Arrays.copyOf(tab, tab.length);
 					long BeginTime = System.currentTimeMillis();
-					tmp = bubbleSort(tmp);
+					tmp = mergeSort(tmp);
 					long EndTime = System.currentTimeMillis();
 					durationTime += EndTime - BeginTime;
 
@@ -64,7 +75,7 @@ public class BubbleSort {
 	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = BubbleSort.getSamples(Features.nbSample);
+			samples = MergeSort.getSamples(Features.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
@@ -88,5 +99,4 @@ public class BubbleSort {
 			e.printStackTrace();
 		}
 	}
-
 }

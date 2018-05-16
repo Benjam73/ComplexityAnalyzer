@@ -1,4 +1,4 @@
-package jus.aor.samples;
+package jus.stage.samples;
 
 public class ZeroPairs {
 

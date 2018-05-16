@@ -1,30 +1,32 @@
-package jus.aor.samples;
+package jus.stage.samples;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import jus.aor.kernel.Features;
+import jus.stage.kernel.Features;
 
-public class DichotomicSearch {
+public class BubbleSort {
 
-	public static boolean isPresent(int[] tab, int element) {
-		int left = 0;
-		int right = tab.length - 1;
-		boolean find = false;
+	public static int[] bubbleSort(int[] T) {
+		int i, j;
+		for (i = T.length; i != 0; i--) {
+			for (j = 0; j < i - 1; j++) {
+				if (T[j + 1] < T[j]) {
+					exchange(T, j, j + 1);
+				}
 
-		while (left <= right && !find) {
-			int middle = (left + right) / 2;
-			if (tab[middle] < element) {
-				left = middle + 1;
-			} else if (tab[middle] > element) {
-				right = middle - 1;
-			} else {
-				find = true;
 			}
 		}
 
-		return find;
+		return T;
+	}
+
+	private static void exchange(int[] tab, int j, int i) {
+		int tmp;
+		tmp = tab[j];
+		tab[j] = tab[i];
+		tab[i] = tmp;
 	}
 
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
@@ -37,7 +39,7 @@ public class DichotomicSearch {
 
 			int[] tab = new int[size];
 			for (int i = 0; i < size; i++) {
-				tab[i] = i;
+				tab[i] = (int) (Math.random() * 2500);
 			}
 
 			for (int i = 0; i < sampleNumber; i++) {
@@ -45,7 +47,7 @@ public class DichotomicSearch {
 				for (int k = 0; k < nbIteration; k++) {
 					int[] tmp = Arrays.copyOf(tab, tab.length);
 					long BeginTime = System.currentTimeMillis();
-					isPresent(tmp, (int) (Math.random() * size));
+					tmp = bubbleSort(tmp);
 					long EndTime = System.currentTimeMillis();
 					durationTime += EndTime - BeginTime;
 
@@ -57,13 +59,12 @@ public class DichotomicSearch {
 		} else {
 			throw new Exception("Sample number must be > 0");
 		}
-
 	}
 
 	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = DichotomicSearch.getSamples(Features.nbSample);
+			samples = BubbleSort.getSamples(Features.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
