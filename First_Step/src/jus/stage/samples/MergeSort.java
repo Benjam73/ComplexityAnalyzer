@@ -73,7 +73,7 @@ public class MergeSort {
 		}
 	}
 
-	public static HashMap<Long, HashMap<float[], Long>> getObservation() {
+	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
 			samples = MergeSort.getSamples(Parameters.nbSample);
