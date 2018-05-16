@@ -1,10 +1,15 @@
-package jus.aor.kernel;
+package jus.stage.kernel;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import Jama.Matrix;
-import jus.aor.samples.MergeSort;
+import jus.stage.samples.BubbleSort;
+import jus.stage.samples.DichotomicSearch;
+import jus.stage.samples.KeepWater;
+import jus.stage.samples.MergeSort;
+import jus.stage.samples.PowerPlant;
+import jus.stage.samples.ZeroPairs;
 
 public class LinearRegression {
 
@@ -155,6 +160,8 @@ public class LinearRegression {
 	}
 
 	/**
+	 * From JamaUtils
+	 * (https://github.com/ppolabs/jlinda/blob/master/jlinda-core/src/main/java/org/jlinda/core/coregistration/estimation/utils/JamaUtils.java)
 	 * Appends additional columns to the first matrix.
 	 *
 	 * @param m
@@ -179,8 +186,89 @@ public class LinearRegression {
 		return x;
 	}
 
-	public static void main(String[] args) {
+	public static void run(String classRequired) throws Exception {
+		HashMap<Long, HashMap<float[], Long>> featuredScaledMap = new HashMap<>();
 
+		try {
+			Class<?> algorithm = Class.forName("jus.stage.samples." + classRequired);
+
+			if (algorithm == MergeSort.class) {
+				System.out.println("------ Merge sort ----- \n");
+				featuredScaledMap = MergeSort.getObservation();
+			}
+			if (algorithm == BubbleSort.class) {
+				System.out.println("------ Bubble sort ------ \n");
+				featuredScaledMap = BubbleSort.getObservation();
+			}
+			if (algorithm == DichotomicSearch.class) {
+				System.out.println("------ Dichotomic search ------ \n");
+				featuredScaledMap = DichotomicSearch.getObservation();
+			}
+			if (algorithm == KeepWater.class) {
+				System.out.println("------ Dichotomic search ------ \n");
+				throw new Exception("NIY");
+			}
+			if (algorithm == PowerPlant.class) {
+				System.out.println("------ Dichotomic search ------ \n");
+				throw new Exception("NIY");
+			}
+			if (algorithm == ZeroPairs.class) {
+				System.out.println("------ Zero pairs ------ \n");
+				throw new Exception("NIY");
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
+
+		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
+		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
+
+		double[][] Xbis = makeXMatrix(featuredScaledMap);
+
+		Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
+
+		X = columnAppend(var, X);
+
+		double[] Key = getKey(featuredScaledMap);
+
+		Matrix result = finalProduct(X, Y);
+
+		double[] resultArray = result.getRowPackedCopy();
+		String output = "";
+
+		System.out.println("The linear regression gives : ");
+		output += "H(x) =" + resultArray[0] + " + ";
+		for (int i = 1; i < resultArray.length - 1; i++) {
+			output += resultArray[i] + getComplexity(i) + ") + ";
+		}
+		output += resultArray[resultArray.length - 1] + getComplexity(resultArray.length - 1) + ")";
+
+		System.out.println(output);
+		double max = Double.MIN_NORMAL;
+		int complexity = -1;
+
+		for (int i = 1; i < resultArray.length; i++) {
+			for (int j = 0; j < Features.nbSample; j++) {
+				if (Math.abs(resultArray[i]) > max) {
+					max = Math.abs(resultArray[i]);
+					complexity = i;
+				}
+			}
+		}
+
+		System.out.println("Average complexity of the current Algortihm : " + getComplexity(complexity));
+	}
+
+	public static void main(String[] args) throws Exception {
+
+		try {
+			run(args[0]);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		HashMap<Long, HashMap<float[], Long>> featuredScaledMap = MergeSort.getObservation();
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));

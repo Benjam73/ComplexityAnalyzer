@@ -1,9 +1,9 @@
-package jus.aor.kernel;
+package jus.stage.kernel;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import jus.aor.samples.MergeSort;
+import jus.stage.samples.MergeSort;
 
 public class Features {
 
