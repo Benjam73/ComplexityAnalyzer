@@ -10,12 +10,13 @@ import jus.stage.samples.KeepWater;
 import jus.stage.samples.MergeSort;
 import jus.stage.samples.PowerPlant;
 import jus.stage.samples.ZeroPairs;
+import jus.stage.utils.Parameters;
 
 public class LinearRegression {
 
 	public static double[][] makeXMatrix(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
 
-		double[][] result = new double[Features.nbSample][Features.precisionNeeded];
+		double[][] result = new double[Parameters.nbSample][Parameters.precisionNeeded];
 
 		int k = 0;
 
@@ -37,7 +38,7 @@ public class LinearRegression {
 
 	public static double[] makeYMatrix(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
 
-		double[] result = new double[Features.nbSample];
+		double[] result = new double[Parameters.nbSample];
 
 		int k = 0;
 
@@ -55,7 +56,7 @@ public class LinearRegression {
 	}
 
 	public static double[] getKey(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
-		double[] key = new double[Features.nbSample];
+		double[] key = new double[Parameters.nbSample];
 		int i = 0;
 		for (Map.Entry<Long, HashMap<float[], Long>> entry1 : featuredScaledMap.entrySet()) {
 			key[i] = entry1.getKey();
@@ -225,13 +226,13 @@ public class LinearRegression {
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
 
-		double[][] Xbis = makeXMatrix(featuredScaledMap);
+		// double[][] Xbis = makeXMatrix(featuredScaledMap);
 
 		Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
 
 		X = columnAppend(var, X);
 
-		double[] Key = getKey(featuredScaledMap);
+		// double[] Key = getKey(featuredScaledMap);
 
 		Matrix result = finalProduct(X, Y);
 
@@ -250,7 +251,7 @@ public class LinearRegression {
 		int complexity = -1;
 
 		for (int i = 1; i < resultArray.length; i++) {
-			for (int j = 0; j < Features.nbSample; j++) {
+			for (int j = 0; j < Parameters.nbSample; j++) {
 				if (Math.abs(resultArray[i]) > max) {
 					max = Math.abs(resultArray[i]);
 					complexity = i;
@@ -307,7 +308,7 @@ public class LinearRegression {
 		}
 
 		for (int i = 1; i < resultArray.length; i++) {
-			for (int j = 0; j < Features.nbSample; j++) {
+			for (int j = 0; j < Parameters.nbSample; j++) {
 				if (Math.abs(resultArray[i]) > max) {
 					max = Math.abs(resultArray[i]);
 					complexity = i;

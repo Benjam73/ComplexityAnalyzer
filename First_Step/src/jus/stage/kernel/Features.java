@@ -4,24 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jus.stage.samples.MergeSort;
+import jus.stage.utils.Parameters;
 
 public class Features {
-
-	public static final int nbSample = 4;
-
-	// This mean we go up to n^3
-	public static final int precisionNeeded = 6;
 
 	public static HashMap<long[], Long> makeFeatures(HashMap<Integer, Long> samples) {
 
 		HashMap<long[], Long> featuredMap = new HashMap<>();
 		for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-			long[] features = new long[precisionNeeded];
+			long[] features = new long[Parameters.precisionNeeded];
 			int currentKey = entry.getKey();
 
 			features[0] = (long) Math.log(currentKey);
 			features[1] = currentKey;
-			for (int i = 2; i < precisionNeeded; i++) {
+			for (int i = 2; i < Parameters.precisionNeeded; i++) {
 				features[i] = (long) ((long) features[i - 2] * (long) currentKey);
 			}
 
@@ -33,12 +29,12 @@ public class Features {
 
 	public static HashMap<Long, HashMap<float[], Long>> scaling(HashMap<long[], Long> featuredMap) {
 
-		long[][] tmp = new long[nbSample][precisionNeeded];
-		float[][] scaled = new float[nbSample][precisionNeeded];
+		long[][] tmp = new long[Parameters.nbSample][Parameters.precisionNeeded];
+		float[][] scaled = new float[Parameters.nbSample][Parameters.precisionNeeded];
 		int i = 0;
 		for (Map.Entry<long[], Long> entry : featuredMap.entrySet()) {
 
-			for (int j = 0; j < precisionNeeded; j++) {
+			for (int j = 0; j < Parameters.precisionNeeded; j++) {
 				tmp[i][j] = entry.getKey()[j];
 			}
 			i++;
@@ -46,11 +42,11 @@ public class Features {
 
 		// Scaling each column to perform gradian algorithm
 
-		for (i = 0; i < nbSample; i++) {
+		for (i = 0; i < Parameters.nbSample; i++) {
 			long mean = 0;
 			long max = Long.MIN_VALUE;
 			long min = Long.MAX_VALUE;
-			for (int j = 0; j < precisionNeeded; j++) {
+			for (int j = 0; j < Parameters.precisionNeeded; j++) {
 				mean += tmp[i][j];
 				if (tmp[i][j] > max) {
 					max = tmp[i][j];
@@ -59,9 +55,10 @@ public class Features {
 					min = tmp[i][j];
 				}
 			}
-			mean /= precisionNeeded;
-			for (int k = 0; k < precisionNeeded; k++) {
+			mean /= Parameters.precisionNeeded;
+			for (int k = 0; k < Parameters.precisionNeeded; k++) {
 				scaled[i][k] = (float) ((float) (tmp[i][k] - mean) / (float) (max - min));
+				// scaled[i][k] = tmp[i][k];
 			}
 		}
 
@@ -76,8 +73,8 @@ public class Features {
 			ScaledFeaturedMap.put(new Long(entry.getKey()[1]), ScaledFeaturedMapTmp);
 
 			i++;
-			ScaledFeaturedMapTmp = new HashMap<>();
 
+			ScaledFeaturedMapTmp = new HashMap<>();
 		}
 
 		return ScaledFeaturedMap;
@@ -87,7 +84,7 @@ public class Features {
 	public static void main(String[] args) {
 
 		try {
-			HashMap<Integer, Long> samples = MergeSort.getSamples(nbSample);
+			HashMap<Integer, Long> samples = MergeSort.getSamples(Parameters.nbSample);
 
 			HashMap<long[], Long> featuredSamples = makeFeatures(samples);
 
