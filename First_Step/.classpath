@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/besnier-benjamin/Stage_G-SCOP/First_Step/Jama-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/home/besnier-benjamin/Stage_G-SCOP/First_Step/Jama-1.0.3.jar" sourcepath="/home/besnier-benjamin/Stage_G-SCOP/Jama-1.0.3.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

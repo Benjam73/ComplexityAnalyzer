@@ -48,7 +48,6 @@ public class LinearRegression {
 
 				result[k] = entry.getValue();
 				k++;
-
 			}
 		}
 
