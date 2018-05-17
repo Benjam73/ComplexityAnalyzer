@@ -17,6 +17,10 @@ import jus.stage.utils.Settings;
 
 public class CartesianPlot extends Application {
 
+	/**
+	 * Mostly based on :
+	 * https://docs.oracle.com/javafx/2/charts/line-chart.htm#CIHGBCFI
+	 */
 	@Override
 	public void start(Stage stage) {
 
@@ -65,8 +69,7 @@ public class CartesianPlot extends Application {
 						sum += (long) ((long) result[i - 2] * (long) entry.getKey());
 					}
 
-					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
-					// sum));
+					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 100000);
