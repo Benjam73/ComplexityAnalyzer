@@ -10,13 +10,13 @@ import jus.stage.samples.KeepWater;
 import jus.stage.samples.MergeSort;
 import jus.stage.samples.PowerPlant;
 import jus.stage.samples.ZeroPairs;
-import jus.stage.utils.Parameters;
+import jus.stage.utils.Settings;
 
 public class LinearRegression {
 
 	public static double[][] makeXMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
 
-		double[][] result = new double[Parameters.nbSample][Parameters.precisionNeeded];
+		double[][] result = new double[Settings.nbSample][Settings.precisionNeeded];
 
 		int k = 0;
 
@@ -38,7 +38,7 @@ public class LinearRegression {
 
 	public static double[] makeYMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
 
-		double[] result = new double[Parameters.nbSample];
+		double[] result = new double[Settings.nbSample];
 
 		int k = 0;
 
@@ -55,7 +55,7 @@ public class LinearRegression {
 	}
 
 	public static double[] getKey(HashMap<Long, HashMap<float[], Long>> featuredScaledMap) {
-		double[] key = new double[Parameters.nbSample];
+		double[] key = new double[Settings.nbSample];
 		int i = 0;
 		for (Map.Entry<Long, HashMap<float[], Long>> entry1 : featuredScaledMap.entrySet()) {
 			key[i] = entry1.getKey();
@@ -140,7 +140,6 @@ public class LinearRegression {
 		Matrix XtransposeY = matrixProduct(Xtranspose, Y);
 		Matrix inverseXXtranspose = matrixInversion(XXtranspose);
 		Matrix result = matrixProduct(inverseXXtranspose, XtransposeY);
-
 		return result;
 
 	}
@@ -172,7 +171,7 @@ public class LinearRegression {
 		return x;
 	}
 
-	public static void run(String classRequired) throws Exception {
+	public static double[] run(String classRequired) throws Exception {
 		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = new HashMap<>();
 
 		try {
@@ -236,7 +235,7 @@ public class LinearRegression {
 		int complexity = -1;
 
 		for (int i = 1; i < resultArray.length; i++) {
-			for (int j = 0; j < Parameters.nbSample; j++) {
+			for (int j = 0; j < Settings.nbSample; j++) {
 				if (Math.abs(resultArray[i]) > max) {
 					max = Math.abs(resultArray[i]);
 					complexity = i;
@@ -245,6 +244,9 @@ public class LinearRegression {
 		}
 
 		System.out.println("Average complexity of the current Algortihm : " + getComplexity(complexity));
+
+		return resultArray;
+
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -285,7 +287,7 @@ public class LinearRegression {
 		}
 
 		for (int i = 1; i < resultArray.length; i++) {
-			for (int j = 0; j < Parameters.nbSample; j++) {
+			for (int j = 0; j < Settings.nbSample; j++) {
 				if (Math.abs(resultArray[i]) > max) {
 					max = Math.abs(resultArray[i]);
 					complexity = i;

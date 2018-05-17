@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jus.stage.kernel.Features;
-import jus.stage.utils.Parameters;
+import jus.stage.utils.Settings;
 
 public class BubbleSort {
 
@@ -33,17 +33,19 @@ public class BubbleSort {
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 
 		if (sampleNumber > 0) {
-			int nbIteration = 10;
+			int nbIteration = Settings.n[0];
 			int size = 1000;
 
 			HashMap<Integer, Long> samples = new HashMap<>();
 
 			int[] tab = new int[size];
 			for (int i = 0; i < size; i++) {
-				tab[i] = (int) (Math.random() * 2500);
+				// tab[i] = (int) (Math.random() * 2500);
+				tab[i] = tab.length - i;
+
 			}
 
-			for (int i = 0; i < sampleNumber; i++) {
+			for (int i = 0; i < Settings.n.length; i++) {
 				long durationTime = 0;
 				for (int k = 0; k < nbIteration; k++) {
 					int[] tmp = Arrays.copyOf(tab, tab.length);
@@ -54,7 +56,7 @@ public class BubbleSort {
 
 				}
 				samples.put(nbIteration, durationTime);
-				nbIteration *= 10;
+				nbIteration = Settings.n[i];
 			}
 			return samples;
 		} else {
@@ -65,7 +67,7 @@ public class BubbleSort {
 	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = BubbleSort.getSamples(Parameters.nbSample);
+			samples = BubbleSort.getSamples(Settings.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
@@ -77,7 +79,7 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 		try {
-			HashMap<Integer, Long> samples = getSamples(Parameters.nbSample);
+			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(

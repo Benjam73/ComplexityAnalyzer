@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jus.stage.kernel.Features;
-import jus.stage.utils.Parameters;
+import jus.stage.utils.Settings;
 
 public class DichotomicSearch {
 
@@ -31,7 +31,7 @@ public class DichotomicSearch {
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 
 		if (sampleNumber > 0) {
-			int nbIteration = 10;
+			int nbIteration = Settings.n[0];
 			int size = 1000;
 
 			HashMap<Integer, Long> samples = new HashMap<>();
@@ -41,7 +41,7 @@ public class DichotomicSearch {
 				tab[i] = i;
 			}
 
-			for (int i = 0; i < sampleNumber; i++) {
+			for (int i = 0; i < Settings.n.length; i++) {
 				long durationTime = 0;
 				for (int k = 0; k < nbIteration; k++) {
 					int[] tmp = Arrays.copyOf(tab, tab.length);
@@ -52,7 +52,7 @@ public class DichotomicSearch {
 
 				}
 				samples.put(nbIteration, durationTime);
-				nbIteration *= 10;
+				nbIteration = Settings.n[i];
 			}
 			return samples;
 		} else {
@@ -64,7 +64,7 @@ public class DichotomicSearch {
 	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = DichotomicSearch.getSamples(Parameters.nbSample);
+			samples = DichotomicSearch.getSamples(Settings.nbSample);
 			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
@@ -76,7 +76,7 @@ public class DichotomicSearch {
 
 	public static void main(String[] args) {
 		try {
-			HashMap<Integer, Long> samples = getSamples(Parameters.nbSample);
+			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(

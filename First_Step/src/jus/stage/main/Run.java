@@ -1,6 +1,7 @@
 package jus.stage.main;
 
 import jus.stage.kernel.LinearRegression;
+import jus.stage.utils.Settings;
 
 public class Run {
 
@@ -12,7 +13,8 @@ public class Run {
 
 		try {
 			for (int i = 0; i < args.length; i++) {
-				LinearRegression.run(args[i]);
+				double[] result = new double[Settings.precisionNeeded + 1];
+				result = LinearRegression.run(args[i]);
 				System.out.println("\n");
 			}
 		} catch (Exception e) {
