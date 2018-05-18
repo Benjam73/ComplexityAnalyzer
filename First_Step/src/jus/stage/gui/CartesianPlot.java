@@ -69,12 +69,14 @@ public class CartesianPlot extends Application {
 						sum += (long) ((long) result[i - 2] * (long) entry.getKey());
 					}
 
-					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
+					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
+					// sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 100000);
-				lineChart.getData().addAll(series1, series2);
 
+				// lineChart.getData().addAll(series1, series2);
+				lineChart.getData().add(series1);
 				stage.setScene(scene);
 				stage.show();
 

@@ -79,7 +79,7 @@ public class MergeSort {
 		HashMap<Integer, Long> samples;
 		try {
 			samples = MergeSort.getSamples(Settings.nbSample);
-			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
+			HashMap<double[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
 			e.getMessage();

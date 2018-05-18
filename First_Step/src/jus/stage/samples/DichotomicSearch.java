@@ -65,7 +65,7 @@ public class DichotomicSearch {
 		HashMap<Integer, Long> samples;
 		try {
 			samples = DichotomicSearch.getSamples(Settings.nbSample);
-			HashMap<long[], Long> featuredSamples = Features.makeFeatures(samples);
+			HashMap<double[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
 			e.getMessage();
