@@ -15,7 +15,7 @@ public class Features {
 			double[] features = new double[Settings.precisionNeeded];
 			int currentKey = entry.getKey();
 
-			features[0] = (double) Math.log10(currentKey);
+			features[0] = (double) Math.log(currentKey);
 			features[1] = currentKey;
 			for (int i = 2; i < Settings.precisionNeeded; i++) {
 				features[i] = (double) ((double) features[i - 2] * (double) currentKey);
@@ -58,7 +58,7 @@ public class Features {
 			mean /= Settings.precisionNeeded;
 			for (int k = 0; k < Settings.precisionNeeded; k++) {
 				scaled[i][k] = (double) (((tmp[i][k] - mean)) / (float) (max - min));
-				// scaled[i][k] = (double) ((tmp[i][k] - mean));
+
 				// scaled[i][k] = tmp[i][k];
 			}
 		}
@@ -91,6 +91,11 @@ public class Features {
 
 			for (Map.Entry<double[], Long> entry : featuredSamples.entrySet()) {
 				System.out.println(entry.getKey()[1] + " iterations takes : " + entry.getValue() + " ms.");
+				System.out.println("\n");
+				for (int i = 0; i < entry.getKey().length; i++) {
+					System.out.println(i + " -> " + entry.getKey()[i] + " Value : " + entry.getValue());
+				}
+				System.out.println("\n");
 			}
 
 			System.out.println("\n \n ----- AFTER SCALING ----- \n \n");
@@ -109,7 +114,9 @@ public class Features {
 				System.out.println("\n");
 			}
 
-		} catch (Exception e) {
+		} catch (
+
+		Exception e) {
 			e.getMessage();
 			e.printStackTrace();
 		}

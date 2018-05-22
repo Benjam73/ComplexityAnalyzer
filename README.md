@@ -25,6 +25,6 @@ The first step is made of 5 packages (for now) :
 
 In this first step, we firstly run multiple times the several samples wanted (precised in run arguments) and measure their CPU running time. 
 Once all the iterations have been done, the algorithm does a multidimensional linear regression in order to compute the complexity class of the current algorithm.
-Then, its plot the data obtained from the algorithms running and the linear regression in order to check if they are both in line.
+Then, its plot the data obtained from the algorithms run and the linear regression in order to check if they are both in line.
 
 ## Second step

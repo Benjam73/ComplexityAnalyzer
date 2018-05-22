@@ -34,7 +34,7 @@ public class BubbleSort {
 
 		if (sampleNumber > 0) {
 			int nbIteration = Settings.n[0];
-			int size = 1000;
+			int size = 2000;
 
 			HashMap<Integer, Long> samples = new HashMap<>();
 

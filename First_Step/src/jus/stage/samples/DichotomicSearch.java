@@ -32,7 +32,7 @@ public class DichotomicSearch {
 
 		if (sampleNumber > 0) {
 			int nbIteration = Settings.n[0];
-			int size = 1000;
+			int size = 100000;
 
 			HashMap<Integer, Long> samples = new HashMap<>();
 
