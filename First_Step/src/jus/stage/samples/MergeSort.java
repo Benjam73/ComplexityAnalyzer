@@ -45,7 +45,7 @@ public class MergeSort {
 
 		if (sampleNumber > 0) {
 			int nbIteration = Settings.n[0];
-			int size = 10000;
+			int size = 15000;
 
 			HashMap<Integer, Long> samples = new HashMap<>();
 
