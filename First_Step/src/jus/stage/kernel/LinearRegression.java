@@ -236,8 +236,8 @@ public class LinearRegression {
 
 		for (int i = 1; i < resultArray.length; i++) {
 			for (int j = 0; j < Settings.nbSample; j++) {
-				if (Math.abs(resultArray[i]) > max) {
-					max = Math.abs(resultArray[i]);
+				if (resultArray[i] > max) {
+					max = resultArray[i];
 					complexity = i;
 				}
 			}

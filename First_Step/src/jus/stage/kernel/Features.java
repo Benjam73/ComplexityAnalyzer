@@ -42,24 +42,24 @@ public class Features {
 
 		// Scaling each column to perform gradian algorithm
 
-		for (i = 0; i < Settings.nbSample; i++) {
+		for (i = 0; i < Settings.precisionNeeded; i++) {
 			double mean = 0;
 			double max = Long.MIN_VALUE;
 			double min = Long.MAX_VALUE;
-			for (int j = 0; j < Settings.precisionNeeded; j++) {
-				mean += tmp[i][j];
-				if (tmp[i][j] > max) {
-					max = tmp[i][j];
+			for (int j = 0; j < Settings.nbSample; j++) {
+				mean += tmp[j][i];
+				if (tmp[j][i] > max) {
+					max = tmp[j][i];
 				}
-				if (tmp[i][j] < min) {
-					min = tmp[i][j];
+				if (tmp[j][i] < min) {
+					min = tmp[j][i];
 				}
 			}
-			mean /= Settings.precisionNeeded;
-			for (int k = 0; k < Settings.precisionNeeded; k++) {
-				scaled[i][k] = (double) (((tmp[i][k] - mean)) / (float) (max - min));
+			mean /= Settings.nbSample;
+			for (int k = 0; k < Settings.nbSample; k++) {
+				scaled[k][i] = (double) (((tmp[k][i] - mean)) / (double) (max - min));
 
-				// scaled[i][k] = tmp[i][k];
+				// scaled[k][i] = tmp[k][i];
 			}
 		}
 

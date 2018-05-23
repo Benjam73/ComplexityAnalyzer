@@ -1,6 +1,5 @@
 package jus.stage.samples;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,30 +28,24 @@ public class DichotomicSearch {
 	}
 
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
-
+		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
-			int nbIteration = Settings.n[0];
-			int size = 100000;
+			for (int i = 0; i < Settings.nDicho.length; i++) {
+				int size = Settings.nDicho[i];
 
-			HashMap<Integer, Long> samples = new HashMap<>();
-
-			int[] tab = new int[size];
-			for (int i = 0; i < size; i++) {
-				tab[i] = i;
-			}
-
-			for (int i = 0; i < Settings.n.length; i++) {
-				long durationTime = 0;
-				for (int k = 0; k < nbIteration; k++) {
-					int[] tmp = Arrays.copyOf(tab, tab.length);
-					long BeginTime = System.currentTimeMillis();
-					isPresent(tmp, (int) (Math.random() * size));
-					long EndTime = System.currentTimeMillis();
-					durationTime += EndTime - BeginTime;
-
+				int[] tab = new int[size];
+				for (int j = 0; j < size; j++) {
+					tab[j] = j;
 				}
-				samples.put(nbIteration, durationTime);
-				nbIteration = Settings.n[i];
+
+				long durationTime = 0;
+
+				long BeginTime = System.currentTimeMillis();
+				isPresent(tab, (int) (Math.random() * size));
+				long EndTime = System.currentTimeMillis();
+				durationTime += EndTime - BeginTime;
+
+				samples.put(size, durationTime);
 			}
 			return samples;
 		} else {
@@ -80,7 +73,7 @@ public class DichotomicSearch {
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(
-						"For " + entry.getKey() + " Iterations, the duration is " + " : " + entry.getValue() + " ms.");
+						"For size " + entry.getKey() + " , the duration is " + " : " + entry.getValue() + " ms.");
 			}
 
 		} catch (Exception e) {

@@ -29,13 +29,13 @@ public class CartesianPlot extends Application {
 			// defining the axes
 			final NumberAxis xAxis = new NumberAxis();
 			final NumberAxis yAxis = new NumberAxis();
-			xAxis.setLabel("Iteration number");
+			xAxis.setLabel("Array size");
 			yAxis.setLabel("CPU time");
 
 			// creating the chart
 			final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
 
-			lineChart.setTitle("CPU time in function of iteration number for " + param);
+			lineChart.setTitle("CPU time in function of array size for " + param);
 			// defining a series
 			XYChart.Series series1 = new XYChart.Series();
 			XYChart.Series series2 = new XYChart.Series();
@@ -63,7 +63,7 @@ public class CartesianPlot extends Application {
 					series1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
 					double sum = 0;
 
-					// sum += result[0];
+					sum += result[0];
 					double tmp = result[1] * Math.log(entry.getKey());
 					sum += result[1] * Math.log(entry.getKey());
 
@@ -81,9 +81,10 @@ public class CartesianPlot extends Application {
 
 					tmp = result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
 					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
-					sum = Math.abs(sum);
+					// sum = Math.abs(sum);
 
-					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
+					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
+					// sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 100000);

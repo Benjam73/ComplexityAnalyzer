@@ -1,6 +1,5 @@
 package jus.stage.samples;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,35 +30,32 @@ public class BubbleSort {
 	}
 
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
-
+		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
-			int nbIteration = Settings.n[0];
-			int size = 4000;
+			for (int i = 0; i < Settings.nBubble.length; i++) {
+				int size = Settings.nBubble[i];
 
-			HashMap<Integer, Long> samples = new HashMap<>();
-
-			int[] tab = new int[size];
-			for (int i = 0; i < size; i++) {
-				// tab[i] = (int) (Math.random() * 2500);
-				tab[i] = tab.length - i;
-
-			}
-
-			for (int i = 0; i < Settings.n.length; i++) {
-				long durationTime = 0;
-				for (int k = 0; k < nbIteration; k++) {
-					int[] tmp = Arrays.copyOf(tab, tab.length);
-					long BeginTime = System.currentTimeMillis();
-					tmp = bubbleSort(tmp);
-					long EndTime = System.currentTimeMillis();
-					durationTime += EndTime - BeginTime;
+				int[] tab = new int[size];
+				for (int j = 0; j < size; j++) {
+					// tab[i] = (int) (Math.random() * 2500);
+					tab[j] = tab.length - j;
 
 				}
-				samples.put(nbIteration, durationTime);
-				nbIteration = Settings.n[i];
+
+				long durationTime = 0;
+
+				long BeginTime = System.currentTimeMillis();
+				tab = bubbleSort(tab);
+				long EndTime = System.currentTimeMillis();
+				durationTime += EndTime - BeginTime;
+				samples.put(size, durationTime);
 			}
 			return samples;
-		} else {
+		}
+
+		else
+
+		{
 			throw new Exception("Sample number must be > 0");
 		}
 	}
@@ -83,7 +79,7 @@ public class BubbleSort {
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println(
-						"For " + entry.getKey() + " Iterations, the duration is " + " : " + entry.getValue() + " ms.");
+						"For size " + entry.getKey() + " , the duration is " + " : " + entry.getValue() + " ms.");
 			}
 
 		} catch (Exception e) {
