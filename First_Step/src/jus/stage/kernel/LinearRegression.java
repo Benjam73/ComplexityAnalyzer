@@ -250,13 +250,10 @@ public class LinearRegression {
 	}
 
 	public static void main(String[] args) throws Exception {
-		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = DichotomicSearch.getObservation();
+		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = MergeSort.getObservation();
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
-
-		System.out.println("X : \n");
-		X.print(X.getRowDimension(), X.getColumnDimension());
 
 		Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
 
@@ -296,16 +293,6 @@ public class LinearRegression {
 		}
 
 		System.out.println("Average complexity of the current Algortihm : " + getComplexity(complexity));
-
-		// Matrix X = new Matrix(new double[][] { { 4, 0, 1 }, { 7, 1, 1 }, { 6,
-		// 1, 0 }, { 2, 0, 0 }, { 3, 0, 1 } });
-		// Matrix Y = new Matrix(new double[][] { { 27 }, { 29 }, { 23 }, { 20
-		// }, { 21 } });
-		// Matrix var = new Matrix(X.getRowDimension(), 1, 1.0);
-		//
-		// X = columnAppend(var, X);
-		// Matrix result = finalProduct(X, Y);
-		// result.print(result.getRowDimension(), result.getColumnDimension());
 
 	}
 

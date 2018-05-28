@@ -37,9 +37,7 @@ public class BubbleSort {
 
 				int[] tab = new int[size];
 				for (int j = 0; j < size; j++) {
-					// tab[i] = (int) (Math.random() * 2500);
 					tab[j] = tab.length - j;
-
 				}
 
 				long durationTime = 0;
@@ -78,8 +76,8 @@ public class BubbleSort {
 			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-				System.out.println(
-						"For size " + entry.getKey() + " , the duration is " + " : " + entry.getValue() + " ms.");
+				System.out.println("For an array of " + entry.getKey() + " elements , it takes" + " : "
+						+ entry.getValue() + " ms.");
 			}
 
 		} catch (Exception e) {

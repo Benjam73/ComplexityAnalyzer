@@ -72,8 +72,8 @@ public class DichotomicSearch {
 			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
 
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-				System.out.println(
-						"For size " + entry.getKey() + " , the duration is " + " : " + entry.getValue() + " ms.");
+				System.out.println("For an array of " + entry.getKey() + " elements , it takes" + " : "
+						+ entry.getValue() + " ms.");
 			}
 
 		} catch (Exception e) {

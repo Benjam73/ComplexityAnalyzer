@@ -64,30 +64,25 @@ public class CartesianPlot extends Application {
 					double sum = 0;
 
 					sum += result[0];
-					double tmp = result[1] * Math.log(entry.getKey());
+
 					sum += result[1] * Math.log(entry.getKey());
 
-					tmp = result[2] * entry.getKey();
 					sum += result[2] * entry.getKey();
 
-					tmp = result[3] * (double) (entry.getKey() * Math.log(entry.getKey()));
 					sum += result[3] * (double) (entry.getKey() * Math.log(entry.getKey()));
 
-					tmp = result[4] * (double) (entry.getKey() * entry.getKey());
 					sum += result[4] * (double) (entry.getKey() * entry.getKey());
 
-					tmp = result[5] * (double) (entry.getKey() * entry.getKey() * Math.log(entry.getKey()));
 					sum += result[5] * (double) (entry.getKey() * entry.getKey() * Math.log(entry.getKey()));
 
-					tmp = result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
 					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
-					// sum = Math.abs(sum);
+					sum = Math.abs(sum);
 
-					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
+					// series2.getData() .add(new XYChart.Data<>(entry.getKey(),
 					// sum));
 				}
 
-				Scene scene = new Scene(lineChart, 800, 100000);
+				Scene scene = new Scene(lineChart, 800, 600);
 
 				lineChart.getData().addAll(series1, series2);
 				stage.setScene(scene);

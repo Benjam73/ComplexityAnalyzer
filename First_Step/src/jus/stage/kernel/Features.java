@@ -3,7 +3,7 @@ package jus.stage.kernel;
 import java.util.HashMap;
 import java.util.Map;
 
-import jus.stage.samples.MergeSort;
+import jus.stage.samples.BubbleSort;
 import jus.stage.utils.Settings;
 
 public class Features {
@@ -56,10 +56,25 @@ public class Features {
 				}
 			}
 			mean /= Settings.nbSample;
+			System.out.println("mean : " + mean);
+			double standardDeviation = 0;
+			for (int k = 0; k < Settings.nbSample; k++) {
+				standardDeviation += Math.pow((tmp[k][i] - mean), 2);
+
+			}
+
+			standardDeviation /= Settings.nbSample;
+			standardDeviation = Math.sqrt(standardDeviation);
+
+			// System.out.println("standart deviation : " + standardDeviation);
+
 			for (int k = 0; k < Settings.nbSample; k++) {
 				scaled[k][i] = (double) (((tmp[k][i] - mean)) / (double) (max - min));
+				// scaled[k][i] = (double) (((tmp[k][i] - mean)) /
+				// standardDeviation);
 
 				// scaled[k][i] = tmp[k][i];
+
 			}
 		}
 
@@ -85,12 +100,13 @@ public class Features {
 	public static void main(String[] args) {
 
 		try {
-			HashMap<Integer, Long> samples = MergeSort.getSamples(Settings.nbSample);
+			HashMap<Integer, Long> samples = BubbleSort.getSamples(Settings.nbSample);
 
 			HashMap<double[], Long> featuredSamples = makeFeatures(samples);
 
 			for (Map.Entry<double[], Long> entry : featuredSamples.entrySet()) {
-				System.out.println(entry.getKey()[1] + " iterations takes : " + entry.getValue() + " ms.");
+				System.out.println(
+						"For an array of " + entry.getKey()[1] + " elements, it takes : " + entry.getValue() + " ms.");
 				System.out.println("\n");
 				for (int i = 0; i < entry.getKey().length; i++) {
 					System.out.println(i + " -> " + entry.getKey()[i] + " Value : " + entry.getValue());
