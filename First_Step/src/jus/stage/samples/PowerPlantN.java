@@ -1,60 +1,41 @@
 package jus.stage.samples;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import jus.stage.kernel.Features;
 import jus.stage.utils.Settings;
 
-public class MergeSort {
+public class PowerPlantN {
 
-	public static int[] mergeSort(int[] tab) {
+	public static int maxProfitInNComplexity(int p[]) {
+		int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
 
-		if (tab.length > 1) {
-			int[] leftTab = Arrays.copyOfRange(tab, 0, tab.length / 2);
-			int[] rightTab = Arrays.copyOfRange(tab, tab.length / 2, tab.length);
-			leftTab = mergeSort(leftTab);
-			rightTab = mergeSort(rightTab);
-			return Merge(leftTab, rightTab);
-
-		} else {
-			return tab;
-		}
-	}
-
-	private static int[] Merge(int[] leftTab, int[] rightTab) {
-		int totalLength = leftTab.length + rightTab.length;
-		int[] tab = new int[totalLength];
-		int index1 = 0, index2 = 0;
-
-		for (int i = 0; i < totalLength; i++) {
-			if (index1 < leftTab.length && (index2 == rightTab.length || leftTab[index1] < rightTab[index2])) {
-				tab[i] = leftTab[index1];
-				index1++;
-			} else {
-				tab[i] = rightTab[index2];
-				index2++;
-			}
+		for (int i = 0; i < p.length; i++) {
+			max_ending_here = max_ending_here + p[i];
+			if (max_so_far < max_ending_here)
+				max_so_far = max_ending_here;
+			if (max_ending_here < 0)
+				max_ending_here = 0;
 		}
 
-		return tab;
+		return max_so_far;
 	}
 
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
-			for (int i = 0; i < Settings.nMerge.length; i++) {
-				int size = Settings.nMerge[i];
-
+			for (int i = 0; i < Settings.nPowerPlantN.length; i++) {
+				int size = Settings.nPowerPlantN[i];
+				int max = 0;
 				int[] tab = new int[size];
 				for (int j = 0; j < size; j++) {
-					tab[j] = tab.length - j;
+					tab[j] = (int) (Math.random() * size);
 				}
 
 				long durationTime = 0;
 				long BeginTime = System.currentTimeMillis();
-				tab = mergeSort(tab);
+				max = maxProfitInNComplexity(tab);
 				long EndTime = System.currentTimeMillis();
 				durationTime += EndTime - BeginTime;
 
@@ -70,7 +51,7 @@ public class MergeSort {
 	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
-			samples = MergeSort.getSamples(Settings.nbSample);
+			samples = PowerPlantN.getSamples(Settings.nbSample);
 			HashMap<double[], Long> featuredSamples = Features.makeFeatures(samples);
 			return Features.scaling(featuredSamples);
 		} catch (Exception e) {
@@ -94,4 +75,5 @@ public class MergeSort {
 			e.printStackTrace();
 		}
 	}
+
 }

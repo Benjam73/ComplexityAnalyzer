@@ -7,8 +7,10 @@ import Jama.Matrix;
 import jus.stage.samples.BubbleSort;
 import jus.stage.samples.DichotomicSearch;
 import jus.stage.samples.KeepWater;
+import jus.stage.samples.MatrixProduct;
 import jus.stage.samples.MergeSort;
-import jus.stage.samples.PowerPlant;
+import jus.stage.samples.PowerPlantN;
+import jus.stage.samples.PowerPlantNSquare;
 import jus.stage.samples.ZeroPairs;
 import jus.stage.utils.Settings;
 
@@ -193,9 +195,17 @@ public class LinearRegression {
 				System.out.println("------ Dichotomic search ------ \n");
 				throw new Exception("NIY");
 			}
-			if (algorithm == PowerPlant.class) {
-				System.out.println("------ Dichotomic search ------ \n");
-				throw new Exception("NIY");
+			if (algorithm == PowerPlantN.class) {
+				System.out.println("------ PowerPlant N ------ \n");
+				featuredScaledMap = PowerPlantN.getObservation();
+			}
+			if (algorithm == PowerPlantNSquare.class) {
+				System.out.println("------ PowerPlant N^2 ------ \n");
+				featuredScaledMap = PowerPlantNSquare.getObservation();
+			}
+			if (algorithm == MatrixProduct.class) {
+				System.out.println("------ Matrix Product ------ \n");
+				featuredScaledMap = MatrixProduct.getObservation();
 			}
 			if (algorithm == ZeroPairs.class) {
 				System.out.println("------ Zero pairs ------ \n");

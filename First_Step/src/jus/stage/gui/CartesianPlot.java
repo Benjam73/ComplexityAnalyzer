@@ -12,7 +12,10 @@ import javafx.stage.Stage;
 import jus.stage.kernel.LinearRegression;
 import jus.stage.samples.BubbleSort;
 import jus.stage.samples.DichotomicSearch;
+import jus.stage.samples.MatrixProduct;
 import jus.stage.samples.MergeSort;
+import jus.stage.samples.PowerPlantN;
+import jus.stage.samples.PowerPlantNSquare;
 import jus.stage.utils.Settings;
 
 public class CartesianPlot extends Application {
@@ -58,9 +61,18 @@ public class CartesianPlot extends Application {
 				if (algorithm == DichotomicSearch.class) {
 					samples = DichotomicSearch.getSamples(Settings.nbSample);
 				}
-
+				if (algorithm == PowerPlantN.class) {
+					samples = PowerPlantN.getSamples(Settings.nbSample);
+				}
+				if (algorithm == PowerPlantNSquare.class) {
+					samples = PowerPlantNSquare.getSamples(Settings.nbSample);
+				}
+				if (algorithm == MatrixProduct.class) {
+					samples = MatrixProduct.getSamples(Settings.nbSample);
+				}
 				for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-					series1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+					// series1.getData().add(new XYChart.Data<>(entry.getKey(),
+					// entry.getValue()));
 					double sum = 0;
 
 					sum += result[0];
@@ -78,8 +90,7 @@ public class CartesianPlot extends Application {
 					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
 					sum = Math.abs(sum);
 
-					// series2.getData() .add(new XYChart.Data<>(entry.getKey(),
-					// sum));
+					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 600);
