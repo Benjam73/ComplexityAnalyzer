@@ -71,8 +71,7 @@ public class CartesianPlot extends Application {
 					samples = MatrixProduct.getSamples(Settings.nbSample);
 				}
 				for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-					// series1.getData().add(new XYChart.Data<>(entry.getKey(),
-					// entry.getValue()));
+					series1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
 					double sum = 0;
 
 					sum += result[0];
@@ -90,7 +89,8 @@ public class CartesianPlot extends Application {
 					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
 					sum = Math.abs(sum);
 
-					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
+					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
+					// sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 600);
