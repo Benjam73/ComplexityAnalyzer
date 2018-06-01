@@ -56,11 +56,12 @@ public class Features {
 				}
 			}
 			mean /= Settings.nbSample;
-			System.out.println("mean : " + mean);
+
+			// System.out.println("mean : " + mean);
+
 			double standardDeviation = 0;
 			for (int k = 0; k < Settings.nbSample; k++) {
 				standardDeviation += Math.pow((tmp[k][i] - mean), 2);
-
 			}
 
 			standardDeviation /= Settings.nbSample;

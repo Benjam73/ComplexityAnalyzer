@@ -71,26 +71,33 @@ public class CartesianPlot extends Application {
 					samples = MatrixProduct.getSamples(Settings.nbSample);
 				}
 				for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-					series1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+					// series1.getData().add(new XYChart.Data<>(entry.getKey(),
+					// entry.getValue()));
 					double sum = 0;
+					double regularizationTerm = 0;
 
 					sum += result[0];
 
 					sum += result[1] * Math.log(entry.getKey());
-
 					sum += result[2] * entry.getKey();
-
 					sum += result[3] * (double) (entry.getKey() * Math.log(entry.getKey()));
-
 					sum += result[4] * (double) (entry.getKey() * entry.getKey());
-
 					sum += result[5] * (double) (entry.getKey() * entry.getKey() * Math.log(entry.getKey()));
-
 					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
 					sum = Math.abs(sum);
 
-					// series2.getData().add(new XYChart.Data<>(entry.getKey(),
-					// sum));
+					regularizationTerm += Math.pow(result[1], 2);
+					regularizationTerm += Math.pow(result[2], 2);
+					regularizationTerm += Math.pow(result[3], 2);
+					regularizationTerm += Math.pow(result[4], 2);
+					regularizationTerm += Math.pow(result[5], 2);
+					regularizationTerm += Math.pow(result[6], 2);
+					sum += regularizationTerm;
+
+					// System.out.println("regularization term : " +
+					// regularizationTerm);
+
+					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
 				}
 
 				Scene scene = new Scene(lineChart, 800, 600);
