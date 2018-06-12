@@ -6,14 +6,38 @@ import java.util.Map;
 import jus.stage.samples.BubbleSort;
 import jus.stage.utils.Settings;
 
+/**
+ * The Features class is used to create all the features and the scaling.
+ * 
+ * @author Benjamin Besnier
+ * @version 1.0
+ * 
+ */
+
 public class Features {
 
+	/**
+	 * This method is used to create all the features needed, using the CPU time
+	 * obtained
+	 * 
+	 * @param samples
+	 *            The result of samples run before
+	 * @return The array with all the features created
+	 */
 	public static HashMap<double[], Long> makeFeatures(HashMap<Integer, Long> samples) {
 
 		HashMap<double[], Long> featuredMap = new HashMap<>();
 		for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 			double[] features = new double[Settings.precisionNeeded];
 			int currentKey = entry.getKey();
+
+			// The features are the following :
+			// log(n)
+			// n
+			// nlog(n)
+			// n^2
+			// n^2log(n)
+			// n^3
 
 			features[0] = (double) Math.log(currentKey);
 			features[1] = currentKey;
@@ -27,6 +51,15 @@ public class Features {
 		return featuredMap;
 	}
 
+	/**
+	 * This method is used to scale all the featured in order to execute the
+	 * linear regression
+	 * 
+	 * @param featuredMap
+	 *            The data, containing all the features and the results
+	 * @return The same data put in arguments but scaled in a HashMap with the
+	 *         CPU time as key and the scaled features
+	 */
 	public static HashMap<Long, HashMap<double[], Long>> scaling(HashMap<double[], Long> featuredMap) {
 
 		double[][] tmp = new double[Settings.nbSample][Settings.precisionNeeded];
@@ -40,7 +73,7 @@ public class Features {
 			i++;
 		}
 
-		// Scaling each column to perform gradian algorithm
+		// Scaling each column to perform the linear regression
 
 		for (i = 0; i < Settings.precisionNeeded; i++) {
 			double mean = 0;
@@ -70,11 +103,12 @@ public class Features {
 			// System.out.println("standart deviation : " + standardDeviation);
 
 			for (int k = 0; k < Settings.nbSample; k++) {
-				scaled[k][i] = (double) (((tmp[k][i] - mean)) / (double) (max - min));
+				// scaled[k][i] = (double) (((tmp[k][i] - mean)) / (double) (max
+				// - min));
 				// scaled[k][i] = (double) (((tmp[k][i] - mean)) /
 				// standardDeviation);
 
-				// scaled[k][i] = tmp[k][i];
+				scaled[k][i] = tmp[k][i];
 
 			}
 		}

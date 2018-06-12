@@ -18,6 +18,15 @@ import jus.stage.samples.PowerPlantN;
 import jus.stage.samples.PowerPlantNSquare;
 import jus.stage.utils.Settings;
 
+/**
+ * The CartesianPlot class is used to have a graphical view of the results
+ * obtained
+ * 
+ * @author Benjamin Besnier
+ * @version 1.0
+ * 
+ */
+
 public class CartesianPlot extends Application {
 
 	/**
@@ -51,6 +60,7 @@ public class CartesianPlot extends Application {
 			try {
 				result = LinearRegression.run(param);
 
+				// Choosing the sample to run
 				Class<?> algorithm = Class.forName("jus.stage.samples." + param);
 				if (algorithm == MergeSort.class) {
 					samples = MergeSort.getSamples(Settings.nbSample);
@@ -70,35 +80,63 @@ public class CartesianPlot extends Application {
 				if (algorithm == MatrixProduct.class) {
 					samples = MatrixProduct.getSamples(Settings.nbSample);
 				}
+				int sizeMax = 0;
+				int sizeMin = 10000000;
 				for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
-					// series1.getData().add(new XYChart.Data<>(entry.getKey(),
-					// entry.getValue()));
-					double sum = 0;
-					double regularizationTerm = 0;
-
-					sum += result[0];
-
-					sum += result[1] * Math.log(entry.getKey());
-					sum += result[2] * entry.getKey();
-					sum += result[3] * (double) (entry.getKey() * Math.log(entry.getKey()));
-					sum += result[4] * (double) (entry.getKey() * entry.getKey());
-					sum += result[5] * (double) (entry.getKey() * entry.getKey() * Math.log(entry.getKey()));
-					sum += result[6] * (double) (entry.getKey() * entry.getKey() * entry.getKey());
-					sum = Math.abs(sum);
-
-					regularizationTerm += Math.pow(result[1], 2);
-					regularizationTerm += Math.pow(result[2], 2);
-					regularizationTerm += Math.pow(result[3], 2);
-					regularizationTerm += Math.pow(result[4], 2);
-					regularizationTerm += Math.pow(result[5], 2);
-					regularizationTerm += Math.pow(result[6], 2);
-					sum += regularizationTerm;
-
-					// System.out.println("regularization term : " +
-					// regularizationTerm);
-
-					series2.getData().add(new XYChart.Data<>(entry.getKey(), sum));
+					if (entry.getKey() > sizeMax) {
+						sizeMax = entry.getKey();
+					}
+					if (entry.getKey() < sizeMin) {
+						sizeMin = entry.getKey();
+					}
+					series1.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
 				}
+
+				for (double i = sizeMin; i <= sizeMax; i += (sizeMax - sizeMin) / 1000) {
+					double sum = 0;
+					sum += result[0];
+					// System.out.println("sum : " + sum);
+					sum += result[1] * Math.log(i);
+					// System.out.println("sum : " + sum);
+					sum += result[2] * i;
+					// System.out.println("sum : " + sum);
+					sum += result[3] * (double) ((double) i * (double) Math.log(i));
+					// System.out.println("sum : " + sum);
+					sum += result[4] * (double) ((double) i * (double) i);
+					// System.out.println("sum : " + sum);
+					sum += result[5] * (double) ((double) i * (double) i * (double) Math.log(i));
+
+					sum += result[6] * (double) ((double) i * (double) i * (double) i);
+
+					series2.getData().add(new XYChart.Data<>(i, sum));
+				}
+
+				// double sum = 0;
+
+				// double tmp = 0;
+				// tmp = Double.MAX_VALUE;
+
+				// System.out.println("key : " + entry.getKey());
+				// System.out.println("sum : " + sum);
+				// sum += result[0];
+				// // System.out.println("sum : " + sum);
+				// sum += result[1] * Math.log(entry.getKey());
+				// // System.out.println("sum : " + sum);
+				// sum += result[2] * entry.getKey();
+				// // System.out.println("sum : " + sum);
+				// sum += result[3] * (double) ((double) entry.getKey() *
+				// (double) Math.log(entry.getKey()));
+				// // System.out.println("sum : " + sum);
+				// sum += result[4] * (double) ((double) entry.getKey() *
+				// (double) entry.getKey());
+				// // System.out.println("sum : " + sum);
+				// sum += result[5] * (double) ((double) entry.getKey() *
+				// (double) entry.getKey()
+				// * (double) Math.log(entry.getKey()));
+				// // System.out.println("sum : " + sum);
+				// sum += result[6]
+				// * (double) ((double) entry.getKey() * (double) entry.getKey()
+				// * (double) entry.getKey());
 
 				Scene scene = new Scene(lineChart, 800, 600);
 
@@ -116,6 +154,12 @@ public class CartesianPlot extends Application {
 
 	}
 
+	/**
+	 * 
+	 * @param args
+	 *            The sample we want to run, precised in the running
+	 *            configuration
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

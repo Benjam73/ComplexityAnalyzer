@@ -260,7 +260,7 @@ public class LinearRegression {
 	}
 
 	public static void main(String[] args) throws Exception {
-		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = MergeSort.getObservation();
+		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = BubbleSort.getObservation();
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
