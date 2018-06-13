@@ -48,12 +48,12 @@ public class PowerPlantNSquare {
 		}
 	}
 
-	public static HashMap<Long, HashMap<double[], Long>> getObservation() {
+	public static HashMap<double[], Long> getObservation() {
 		HashMap<Integer, Long> samples;
 		try {
 			samples = PowerPlantNSquare.getSamples(Settings.nbSample);
-			HashMap<double[], Long> featuredSamples = Features.makeFeatures(samples);
-			return Features.scaling(featuredSamples);
+			return Features.makeFeatures(samples);
+
 		} catch (Exception e) {
 			e.getMessage();
 			e.printStackTrace();

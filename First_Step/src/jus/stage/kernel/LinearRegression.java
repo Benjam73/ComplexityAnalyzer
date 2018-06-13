@@ -16,41 +16,34 @@ import jus.stage.utils.Settings;
 
 public class LinearRegression {
 
-	public static double[][] makeXMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
+	public static double[][] makeXMatrix(HashMap<double[], Long> featuresMap) {
 
 		double[][] result = new double[Settings.nbSample][Settings.precisionNeeded];
 
 		int k = 0;
 
-		for (Map.Entry<Long, HashMap<double[], Long>> entry1 : featuredScaledMap.entrySet()) {
+		for (Map.Entry<double[], Long> entry : featuresMap.entrySet()) {
 
-			for (Map.Entry<double[], Long> entry : entry1.getValue().entrySet()) {
-
-				for (int i = 0; i < entry.getKey().length; i++) {
-					result[k][i] = entry.getKey()[i];
-				}
-				k++;
-
+			for (int i = 0; i < entry.getKey().length; i++) {
+				result[k][i] = entry.getKey()[i];
 			}
+			k++;
 
 		}
 
 		return result;
 	}
 
-	public static double[] makeYMatrix(HashMap<Long, HashMap<double[], Long>> featuredScaledMap) {
+	public static double[] makeYMatrix(HashMap<double[], Long> featuresMap) {
 
 		double[] result = new double[Settings.nbSample];
 
 		int k = 0;
 
-		for (Map.Entry<Long, HashMap<double[], Long>> entry1 : featuredScaledMap.entrySet()) {
+		for (Map.Entry<double[], Long> entry : featuresMap.entrySet()) {
 
-			for (Map.Entry<double[], Long> entry : entry1.getValue().entrySet()) {
-
-				result[k] = entry.getValue();
-				k++;
-			}
+			result[k] = entry.getValue();
+			k++;
 		}
 
 		return result;
@@ -174,22 +167,22 @@ public class LinearRegression {
 	}
 
 	public static double[] run(String classRequired) throws Exception {
-		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = new HashMap<>();
+		HashMap<double[], Long> featuresMap = new HashMap<>();
 
 		try {
 			Class<?> algorithm = Class.forName("jus.stage.samples." + classRequired);
 
 			if (algorithm == MergeSort.class) {
 				System.out.println("------ Merge sort ----- \n");
-				featuredScaledMap = MergeSort.getObservation();
+				featuresMap = MergeSort.getObservation();
 			}
 			if (algorithm == BubbleSort.class) {
 				System.out.println("------ Bubble sort ------ \n");
-				featuredScaledMap = BubbleSort.getObservation();
+				featuresMap = BubbleSort.getObservation();
 			}
 			if (algorithm == DichotomicSearch.class) {
 				System.out.println("------ Dichotomic search ------ \n");
-				featuredScaledMap = DichotomicSearch.getObservation();
+				featuresMap = DichotomicSearch.getObservation();
 			}
 			if (algorithm == KeepWater.class) {
 				System.out.println("------ Dichotomic search ------ \n");
@@ -197,15 +190,15 @@ public class LinearRegression {
 			}
 			if (algorithm == PowerPlantN.class) {
 				System.out.println("------ PowerPlant N ------ \n");
-				featuredScaledMap = PowerPlantN.getObservation();
+				featuresMap = PowerPlantN.getObservation();
 			}
 			if (algorithm == PowerPlantNSquare.class) {
 				System.out.println("------ PowerPlant N^2 ------ \n");
-				featuredScaledMap = PowerPlantNSquare.getObservation();
+				featuresMap = PowerPlantNSquare.getObservation();
 			}
 			if (algorithm == MatrixProduct.class) {
 				System.out.println("------ Matrix Product ------ \n");
-				featuredScaledMap = MatrixProduct.getObservation();
+				featuresMap = MatrixProduct.getObservation();
 			}
 			if (algorithm == ZeroPairs.class) {
 				System.out.println("------ Zero pairs ------ \n");
@@ -217,8 +210,8 @@ public class LinearRegression {
 			e.printStackTrace();
 		}
 
-		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
-		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));
+		Matrix X = matrixFrom2DArray(makeXMatrix(featuresMap));
+		Matrix Y = matrixFrom1DArray(makeYMatrix(featuresMap));
 
 		// double[][] Xbis = makeXMatrix(featuredScaledMap);
 
@@ -260,7 +253,7 @@ public class LinearRegression {
 	}
 
 	public static void main(String[] args) throws Exception {
-		HashMap<Long, HashMap<double[], Long>> featuredScaledMap = BubbleSort.getObservation();
+		HashMap<double[], Long> featuredScaledMap = BubbleSort.getObservation();
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuredScaledMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuredScaledMap));

@@ -95,48 +95,21 @@ public class CartesianPlot extends Application {
 				for (double i = sizeMin; i <= sizeMax; i += (sizeMax - sizeMin) / 1000) {
 					double sum = 0;
 					sum += result[0];
-					// System.out.println("sum : " + sum);
+
 					sum += result[1] * Math.log(i);
-					// System.out.println("sum : " + sum);
+
 					sum += result[2] * i;
-					// System.out.println("sum : " + sum);
+
 					sum += result[3] * (double) ((double) i * (double) Math.log(i));
-					// System.out.println("sum : " + sum);
+
 					sum += result[4] * (double) ((double) i * (double) i);
-					// System.out.println("sum : " + sum);
+
 					sum += result[5] * (double) ((double) i * (double) i * (double) Math.log(i));
 
 					sum += result[6] * (double) ((double) i * (double) i * (double) i);
 
 					series2.getData().add(new XYChart.Data<>(i, sum));
 				}
-
-				// double sum = 0;
-
-				// double tmp = 0;
-				// tmp = Double.MAX_VALUE;
-
-				// System.out.println("key : " + entry.getKey());
-				// System.out.println("sum : " + sum);
-				// sum += result[0];
-				// // System.out.println("sum : " + sum);
-				// sum += result[1] * Math.log(entry.getKey());
-				// // System.out.println("sum : " + sum);
-				// sum += result[2] * entry.getKey();
-				// // System.out.println("sum : " + sum);
-				// sum += result[3] * (double) ((double) entry.getKey() *
-				// (double) Math.log(entry.getKey()));
-				// // System.out.println("sum : " + sum);
-				// sum += result[4] * (double) ((double) entry.getKey() *
-				// (double) entry.getKey());
-				// // System.out.println("sum : " + sum);
-				// sum += result[5] * (double) ((double) entry.getKey() *
-				// (double) entry.getKey()
-				// * (double) Math.log(entry.getKey()));
-				// // System.out.println("sum : " + sum);
-				// sum += result[6]
-				// * (double) ((double) entry.getKey() * (double) entry.getKey()
-				// * (double) entry.getKey());
 
 				Scene scene = new Scene(lineChart, 800, 600);
 
