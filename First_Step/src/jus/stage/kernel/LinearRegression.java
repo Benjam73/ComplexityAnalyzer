@@ -5,13 +5,6 @@ import java.util.Map;
 
 import Jama.Matrix;
 import jus.stage.samples.BubbleSort;
-import jus.stage.samples.DichotomicSearch;
-import jus.stage.samples.KeepWater;
-import jus.stage.samples.MatrixProduct;
-import jus.stage.samples.MergeSort;
-import jus.stage.samples.PowerPlantN;
-import jus.stage.samples.PowerPlantNSquare;
-import jus.stage.samples.ZeroPairs;
 import jus.stage.utils.Settings;
 
 public class LinearRegression {
@@ -166,49 +159,7 @@ public class LinearRegression {
 		return x;
 	}
 
-	public static double[] run(String classRequired) throws Exception {
-		HashMap<double[], Long> featuresMap = new HashMap<>();
-
-		try {
-			Class<?> algorithm = Class.forName("jus.stage.samples." + classRequired);
-
-			if (algorithm == MergeSort.class) {
-				System.out.println("------ Merge sort ----- \n");
-				featuresMap = MergeSort.getObservation();
-			}
-			if (algorithm == BubbleSort.class) {
-				System.out.println("------ Bubble sort ------ \n");
-				featuresMap = BubbleSort.getObservation();
-			}
-			if (algorithm == DichotomicSearch.class) {
-				System.out.println("------ Dichotomic search ------ \n");
-				featuresMap = DichotomicSearch.getObservation();
-			}
-			if (algorithm == KeepWater.class) {
-				System.out.println("------ Dichotomic search ------ \n");
-				throw new Exception("NIY");
-			}
-			if (algorithm == PowerPlantN.class) {
-				System.out.println("------ PowerPlant N ------ \n");
-				featuresMap = PowerPlantN.getObservation();
-			}
-			if (algorithm == PowerPlantNSquare.class) {
-				System.out.println("------ PowerPlant N^2 ------ \n");
-				featuresMap = PowerPlantNSquare.getObservation();
-			}
-			if (algorithm == MatrixProduct.class) {
-				System.out.println("------ Matrix Product ------ \n");
-				featuresMap = MatrixProduct.getObservation();
-			}
-			if (algorithm == ZeroPairs.class) {
-				System.out.println("------ Zero pairs ------ \n");
-				throw new Exception("NIY");
-			}
-
-		} catch (ClassNotFoundException e) {
-			e.getMessage();
-			e.printStackTrace();
-		}
+	public static double[] run(HashMap<double[], Long> featuresMap) throws Exception {
 
 		Matrix X = matrixFrom2DArray(makeXMatrix(featuresMap));
 		Matrix Y = matrixFrom1DArray(makeYMatrix(featuresMap));
@@ -234,19 +185,6 @@ public class LinearRegression {
 		output += resultArray[resultArray.length - 1] + getComplexity(resultArray.length - 1) + ")";
 
 		System.out.println(output);
-		double max = Double.MIN_NORMAL;
-		int complexity = -1;
-
-		for (int i = 1; i < resultArray.length; i++) {
-			for (int j = 0; j < Settings.nbSample; j++) {
-				if (resultArray[i] > max) {
-					max = resultArray[i];
-					complexity = i;
-				}
-			}
-		}
-
-		System.out.println("Average complexity of the current Algortihm : " + getComplexity(complexity));
 
 		return resultArray;
 

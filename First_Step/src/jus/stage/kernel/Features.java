@@ -51,16 +51,13 @@ public class Features {
 		return featuredMap;
 	}
 
-	/**
-	 * This method is used to scale all the featured in order to execute the
-	 * linear regression
-	 * 
-	 * @param featuredMap
-	 *            The data, containing all the features and the results
-	 * @return The same data put in arguments but scaled in a HashMap with the
-	 *         CPU time as key and the scaled features
-	 * @deprecated
-	 */
+	public static HashMap<Double, Long> getWantedFeature(HashMap<double[], Long> featuresMap, int featureWanted) {
+		HashMap<Double, Long> result = new HashMap<>();
+		for (Map.Entry<double[], Long> entry : featuresMap.entrySet()) {
+			result.put(entry.getKey()[featureWanted], entry.getValue());
+		}
+		return result;
+	}
 
 	public static void main(String[] args) {
 
@@ -79,6 +76,12 @@ public class Features {
 				System.out.println("\n");
 			}
 
+			System.out.println("get features");
+			HashMap<Double, Long> result = getWantedFeature(featuredSamples, 0);
+
+			for (Map.Entry<Double, Long> entry : result.entrySet()) {
+				System.out.println(entry.getKey() + " ; " + entry.getValue());
+			}
 		} catch (
 
 		Exception e) {
