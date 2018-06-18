@@ -8,14 +8,14 @@ public class Settings {
 			10000000 };
 
 	public static int[] nDicho = { 1000000, 2500000, 5000000, 7500000, 10000000, 15000000, 20000000, 50000000, 75000000,
-			100000000, 150000000 };
+			100000000 };
 
-	public static int[] nPowerPlantN = { 1000000, 2500000, 5000000, 7500000, 10000000, 15000000, 20000000, 50000000,
-			75000000, 100000000, 150000000 };
+	public static int[] nPowerPlantN = { 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000,
+			9000000, 10000000 };
 
 	public static int[] nPowerPlantNSquare = { 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000 };
 
-	public static int[] nMatrixProduct = { 10, 50, 75, 100, 125, 150, 200, 250, 350, 450, 500 };
+	public static int[] nMatrixProduct = { 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200 };
 
 	public static int nbSample = nBubble.length;
 
