@@ -202,7 +202,7 @@ public class CartesianPlot extends Application {
 				// seriesLog, seriesN, seriesNLog, seriesNSquare,
 				// seriesNSquareLog, seriesNCubic);
 
-				lineChart.getData().addAll(seriesObserved, seriesResult, seriesNSquare, seriesNSquareLog, seriesNCubic);
+				lineChart.getData().addAll(seriesObserved, seriesResult, seriesNSquare, seriesN, seriesNCubic);
 
 				stage.setScene(scene);
 				stage.show();
