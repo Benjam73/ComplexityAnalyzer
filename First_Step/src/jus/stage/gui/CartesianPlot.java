@@ -40,6 +40,7 @@ public class CartesianPlot extends Application {
 	 * Mostly based on :
 	 * https://docs.oracle.com/javafx/2/charts/line-chart.htm#CIHGBCFI
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void start(Stage stage) {
 

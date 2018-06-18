@@ -34,12 +34,12 @@ public class MatrixProduct {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
 			for (int i = 0; i < Settings.nMatrixProduct.length; i++) {
 				int size = Settings.nMatrixProduct[i];
-				int max = 0;
 
 				int[][] A = new int[size][size];
 				int[][] B = new int[size][size];

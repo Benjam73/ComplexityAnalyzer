@@ -22,6 +22,7 @@ public class PowerPlantNSquare {
 		return max;
 	}
 
+	@SuppressWarnings("unused")
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {

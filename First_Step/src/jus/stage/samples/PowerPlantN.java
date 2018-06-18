@@ -22,6 +22,7 @@ public class PowerPlantN {
 		return max_so_far;
 	}
 
+	@SuppressWarnings("unused")
 	public static HashMap<Integer, Long> getSamples(int sampleNumber) throws Exception {
 		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
