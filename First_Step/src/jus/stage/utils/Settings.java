@@ -30,4 +30,14 @@ public class Settings {
 
 	public static double ymax = Double.MAX_VALUE;
 
+	public static boolean sizeExisting(int[] sizeSample, double targetSize) {
+		boolean exist = false;
+		for (int i = 0; i < sizeSample.length && !exist; i++) {
+			if (sizeSample[i] == targetSize) {
+				exist = true;
+			}
+		}
+		return exist;
+	}
+
 }

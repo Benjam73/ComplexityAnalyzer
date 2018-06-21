@@ -54,7 +54,6 @@ public class CartesianPlot extends Application {
 
 			// creating the chart
 			final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
-
 			lineChart.setTitle("CPU time in function of array size for " + param);
 			// defining a series
 			XYChart.Series seriesObserved = new XYChart.Series();
@@ -87,6 +86,8 @@ public class CartesianPlot extends Application {
 			double[] resultNSquareLog = new double[2];
 			double[] resultNCubic = new double[2];
 
+			int[] sizeSample = new int[Settings.nbSample];
+
 			try {
 
 				// Choosing the sample to run
@@ -94,26 +95,32 @@ public class CartesianPlot extends Application {
 				if (algorithm == MergeSort.class) {
 					System.out.println("---------- Merge Sort ----------");
 					featuresMap = MergeSort.getObservation();
+					sizeSample = Settings.nMerge;
 				}
 				if (algorithm == BubbleSort.class) {
 					System.out.println("---------- Bubble Sort ----------");
 					featuresMap = BubbleSort.getObservation();
+					sizeSample = Settings.nBubble;
 				}
 				if (algorithm == DichotomicSearch.class) {
 					System.out.println("---------- DichotomicSearch ----------");
 					featuresMap = DichotomicSearch.getObservation();
+					sizeSample = Settings.nDicho;
 				}
 				if (algorithm == PowerPlantN.class) {
 					System.out.println("---------- Power Plant N ----------");
 					featuresMap = PowerPlantN.getObservation();
+					sizeSample = Settings.nPowerPlantN;
 				}
 				if (algorithm == PowerPlantNSquare.class) {
 					System.out.println("---------- Power Plant N Square ----------");
 					featuresMap = PowerPlantNSquare.getObservation();
+					sizeSample = Settings.nPowerPlantNSquare;
 				}
 				if (algorithm == MatrixProduct.class) {
 					System.out.println("---------- Matrix Product ----------");
 					featuresMap = MatrixProduct.getObservation();
+					sizeSample = Settings.nMatrixProduct;
 				}
 
 				observedValue = Features.getWantedFeature(featuresMap, 1);
@@ -127,6 +134,7 @@ public class CartesianPlot extends Application {
 
 				double sizeMax = 0;
 				double sizeMin = Double.MAX_VALUE;
+
 				for (Map.Entry<Double, Long> entry : observedValue.entrySet()) {
 					if (entry.getKey() > sizeMax) {
 						sizeMax = entry.getKey();
@@ -143,8 +151,8 @@ public class CartesianPlot extends Application {
 				double residualSquareSumNSquare = 0;
 				double residualSquareSumNSquareLog = 0;
 				double residualSquareSumNCubic = 0;
-
-				for (double i = sizeMin; i <= sizeMax; i += (sizeMax - sizeMin) / 100) {
+				double residualSquareSumResult = 0;
+				for (double i = sizeMin; i <= sizeMax; i += (sizeMax - sizeMin) / 100 + 100) {
 					double sum = 0;
 					double sumLog = 0;
 					double sumN = 0;
@@ -179,12 +187,16 @@ public class CartesianPlot extends Application {
 					sum += result[5] * (double) ((double) i * (double) i * (double) Math.log(i));
 					sum += result[6] * (double) ((double) i * (double) i * (double) i);
 
-					residualSquareSumLog += Math.pow((sum - sumLog), 2);
-					residualSquareSumN += Math.pow((sum - sumN), 2);
-					residualSquareSumNLog += Math.pow((sum - sumNLog), 2);
-					residualSquareSumNSquare += Math.pow((sum - sumNSquare), 2);
-					residualSquareSumNSquareLog += Math.pow((sum - sumNSquareLog), 2);
-					residualSquareSumNCubic += Math.pow((sum - sumNCubic), 2);
+					if (Settings.sizeExisting(sizeSample, i)) {
+						double target = getValueFromKey(observedValue, i);
+						residualSquareSumResult = Math.pow((target - sum), 2);
+						residualSquareSumLog += Math.pow((target - sumLog), 2);
+						residualSquareSumN += Math.pow((target - sumN), 2);
+						residualSquareSumNLog += Math.pow((target - sumNLog), 2);
+						residualSquareSumNSquare += Math.pow((target - sumNSquare), 2);
+						residualSquareSumNSquareLog += Math.pow((target - sumNSquareLog), 2);
+						residualSquareSumNCubic += Math.pow((target - sumNCubic), 2);
+					}
 
 					seriesResult.getData().add(new XYChart.Data<>(i, sum));
 					seriesLog.getData().add(new XYChart.Data<>(i, sumLog));
@@ -196,13 +208,19 @@ public class CartesianPlot extends Application {
 
 				}
 
+				System.out.println("Error for linear regression : " + residualSquareSumResult);
+				System.out.println("Error for O(log(n)) : " + residualSquareSumLog);
+				System.out.println("Error for O(n) : " + residualSquareSumN);
+				System.out.println("Error for O(nLog(n)) : " + residualSquareSumNLog);
+				System.out.println("Error for O(n^2) : " + residualSquareSumNSquare);
+				System.out.println("Error for O(n^2Log(n)) : " + residualSquareSumNSquareLog);
+				System.out.println("Error for O(n^3) : " + residualSquareSumNCubic);
+
 				Scene scene = new Scene(lineChart, 800, 600);
 
 				// lineChart.getData().addAll(seriesObserved, seriesResult,
-				// seriesLog, seriesN, seriesNLog, seriesNSquare,
-				// seriesNSquareLog, seriesNCubic);
-
-				lineChart.getData().addAll(seriesObserved, seriesResult, seriesNSquare, seriesN, seriesNCubic);
+				// seriesNSquare, seriesNSquareLog);
+				lineChart.getData().addAll(seriesObserved, seriesResult);
 
 				stage.setScene(scene);
 				stage.show();
@@ -219,6 +237,15 @@ public class CartesianPlot extends Application {
 
 		}
 
+	}
+
+	private long getValueFromKey(HashMap<Double, Long> resultMap, double key) {
+		for (Map.Entry<Double, Long> entry : resultMap.entrySet()) {
+			if (entry.getKey() == key) {
+				return entry.getValue();
+			}
+		}
+		return (Long) null;
 	}
 
 	private void determineComplexity(double residualSquareSumLog, double residualSquareSumN,

@@ -22,6 +22,33 @@ public class BubbleSort {
 		return T;
 	}
 
+	public static int[] bubbleSortBis(int[] T) {
+		int i, j;
+		int tmp = 0;
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		for (i = T.length; i != 0; i--) {
+			for (j = 0; j < i - 1; j++) {
+				if (T[j + 1] < T[j]) {
+					exchange(T, j, j + 1);
+				}
+
+			}
+		}
+
+		return T;
+	}
+
 	private static void exchange(int[] tab, int j, int i) {
 		int tmp;
 		tmp = tab[j];
