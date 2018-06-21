@@ -1,0 +1,24 @@
+-The compilation or preparation of execution has failed
+Tools.java:25: error: class, interface, or enum expected
+    public static int fastNumberOfCancellations(int[] tab) {
+                  ^
+Tools.java:27: error: class, interface, or enum expected
+        int count = 0;
+        ^
+Tools.java:28: error: class, interface, or enum expected
+        array.sort[tab];
+        ^
+Tools.java:29: error: class, interface, or enum expected
+        for(int i=0; i<n; i++){
+        ^
+Tools.java:29: error: class, interface, or enum expected
+        for(int i=0; i<n; i++){
+                     ^
+Tools.java:29: error: class, interface, or enum expected
+        for(int i=0; i<n; i++){
+                          ^
+Tools.java:32: error: class, interface, or enum expected
+          }
+          ^
+7 errors
+Not compiled

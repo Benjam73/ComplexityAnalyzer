@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Tools.java:30: cannot find symbol
+symbol  : method fusion(int[],int[])
+location: class Tools
+            return fusion(tg, td);
+                   ^
+1 error
+Not compiled

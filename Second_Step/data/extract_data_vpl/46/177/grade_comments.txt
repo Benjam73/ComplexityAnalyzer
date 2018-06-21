@@ -1,0 +1,6 @@
+-The compilation or preparation of execution has failed
+Tools.java:15: error: integer number too large: 1004540450540450454508
+                tab[i]=1004540450540450454508+2*i;
+                       ^
+1 error
+Not compiled

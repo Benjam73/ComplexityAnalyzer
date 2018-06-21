@@ -1,0 +1,6 @@
+-The compilation or preparation of execution has failed
+Tools.java:4: error: class, interface, or enum expected
+  java.util.Arrays;
+  ^
+1 error
+Not compiled

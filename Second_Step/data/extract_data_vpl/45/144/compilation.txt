@@ -1,0 +1,9 @@
+./Executable.java:11: error: ';' expected
+        int[] tab = new int[5](5,3,4,2,1);
+                              ^
+./Executable.java:12: error: cannot find symbol
+        System.out.println(tab.sortBubble());
+                              ^
+  symbol:   method sortBubble()
+  location: variable tab of type int[]
+2 errors

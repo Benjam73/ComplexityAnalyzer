@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Scores.java:35: error: bad operand types for binary operator '+'
+        result=result+t[i] ;
+                     ^
+  first type:  int[]
+  second type: int
+1 error
+Not compiled

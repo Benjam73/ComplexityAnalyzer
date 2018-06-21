@@ -1,0 +1,16 @@
+-Tests results
+-Test 1/10 : IntegerProfile.sizeLongestPlateau
+-Test 2/10 : IntegerProfile.sizeLongestPlateau
+-Test 3/10 : IntegerProfile.sizeLongestPlateau
+-Test 4/10 : IntegerProfile.sizeLongestPlateau
+-Test 5/10 : IntegerProfile.sizeLongestPlateau
+-Test 6/10 : IntegerProfile.sizeLongestPlateau
+-Test 7/10 : IntegerProfile.sizeLongestPlateau
+-Test 8/10 : IntegerProfile.sizeLongestPlateau
+-Test 9/10 : IntegerProfile.sizeLongestPlateau
+Incorrect program result
+Input         : IntegerProfile([12]).sizeLongestPlateau()
+Program  Ouput: 0
+Expected Ouput: 1
+Method        : sizeLongestPlateau
+-Test 10/10 : IntegerProfile.sizeLongestPlateau

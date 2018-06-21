@@ -1,0 +1,29 @@
+-Tests results
+-Test 1/8 : Scores.podium
+-Test 2/8 : Scores.podium
+Incorrect program result
+Input         : hidden
+Program  Ouput: [12,27,89]
+Expected Ouput: hidden
+Method        : podium
+-Test 3/8 : Scores.podium
+-Test 4/8 : Scores.podium
+-Test 5/8 : Scores.podium
+Incorrect program result
+Input         : hidden
+Program  Ouput: [3,3,3]
+Expected Ouput: hidden
+Method        : podium
+-Test 6/8 : Scores.podium
+-Test 7/8 : Scores.podium
+Incorrect program result
+Input         : hidden
+Program  Ouput: [1,2,12]
+Expected Ouput: hidden
+Method        : podium
+-Test 8/8 : Scores.podium
+Incorrect program result
+Input         : hidden
+Program  Ouput: [12,12,12]
+Expected Ouput: hidden
+Method        : podium

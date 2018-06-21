@@ -1,0 +1,22 @@
+Tools.java:12: error: cannot find symbol
+        int n=tab.lenght();
+                 ^
+  symbol:   method lenght()
+  location: variable tab of type int[]
+Tools.java:16: error: cannot find symbol
+                    echanger(tab,j,j+1);
+                    ^
+  symbol:   method echanger(int[],int,int)
+  location: class Tools
+2 errors
+./Tools.java:12: error: cannot find symbol
+        int n=tab.lenght();
+                 ^
+  symbol:   method lenght()
+  location: variable tab of type int[]
+./Tools.java:16: error: cannot find symbol
+                    echanger(tab,j,j+1);
+                    ^
+  symbol:   method echanger(int[],int,int)
+  location: class Tools
+2 errors

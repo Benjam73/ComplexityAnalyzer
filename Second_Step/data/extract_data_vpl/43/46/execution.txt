@@ -1,0 +1,13 @@
+An execution error has occured !
+Go back to eclipse and test your code
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at caseine.TestCase.runTestCase(TestCase.java:331)
+	at caseine.CasesAnalyser.runAllTests(CasesAnalyser.java:60)
+	at caseine.CasesAnalyser.main(CasesAnalyser.java:106)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 12
+	at IntegerProfile.sizeLongestPlateau(IntegerProfile.java:33)
+	... 7 more

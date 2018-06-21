@@ -1,0 +1,21 @@
+-The compilation or preparation of execution has failed
+Tools.java:23: error: illegal start of expression
+    public static int fastNumberOfCancellations(int[] tab) {
+    ^
+Tools.java:23: error: illegal start of expression
+    public static int fastNumberOfCancellations(int[] tab) {
+           ^
+Tools.java:23: error: ';' expected
+    public static int fastNumberOfCancellations(int[] tab) {
+                 ^
+Tools.java:23: error: '.class' expected
+    public static int fastNumberOfCancellations(int[] tab) {
+                                                      ^
+Tools.java:23: error: ';' expected
+    public static int fastNumberOfCancellations(int[] tab) {
+                                                         ^
+Tools.java:27: error: reached end of file while parsing
+}
+ ^
+6 errors
+Not compiled

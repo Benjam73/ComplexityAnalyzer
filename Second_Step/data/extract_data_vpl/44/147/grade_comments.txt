@@ -1,0 +1,12 @@
+-The compilation or preparation of execution has failed
+Scores.java:42: error: not a statement
+        scores[] = scoresOrdonnee(scores[]);
+              ^
+Scores.java:42: error: ';' expected
+        scores[] = scoresOrdonnee(scores[]);
+                ^
+Scores.java:42: error: '.class' expected
+        scores[] = scoresOrdonnee(scores[]);
+                                          ^
+3 errors
+Not compiled

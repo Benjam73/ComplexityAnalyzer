@@ -1,0 +1,16 @@
+<|--
+-Tests results
+-Test 1/8 : Scores.podium
+-Test 2/8 : Scores.podium
+-Test 3/8 : Scores.podium
+-Test 4/8 : Scores.podium
+-Test 5/8 : Scores.podium
+-Test 6/8 : Scores.podium
+-Test 7/8 : Scores.podium
+-Test 8/8 : Scores.podium
+--|>
+Grade :=>> 100
+java.lang.InterruptedException: sleep interrupted
+
+	at java.lang.Thread.sleep(Native Method)
+	at caseine.TestCase$TimeOutThread.run(TestCase.java:452)

@@ -1,0 +1,4 @@
+IntegerProfile.java:44: error: missing return statement
+}
+^
+1 error

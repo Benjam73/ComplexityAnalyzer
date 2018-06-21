@@ -1,0 +1,6 @@
+-The compilation or preparation of execution has failed
+Tools.java:30: error: duplicate class: Tools
+public class Tools {
+       ^
+1 error
+Not compiled

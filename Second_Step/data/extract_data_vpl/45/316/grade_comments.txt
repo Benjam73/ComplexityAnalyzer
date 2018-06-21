@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Tools.java:15: error: cannot find symbol
+                    exchange(tab, j, j+1);
+                    ^
+  symbol:   method exchange(int[],int,int)
+  location: class Tools
+1 error
+Not compiled

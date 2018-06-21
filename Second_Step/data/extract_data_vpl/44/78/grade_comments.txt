@@ -1,0 +1,9 @@
+-The compilation or preparation of execution has failed
+Executable.java:11: error: constructor Scores in class Scores cannot be applied to given types;
+        Scores scores= new Scores(list);
+                       ^
+  required: no arguments
+  found: int[]
+  reason: actual and formal argument lists differ in length
+1 error
+Not compiled

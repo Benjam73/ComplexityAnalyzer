@@ -1,0 +1,24 @@
+<|--
+-Test 1/5 : IntegerProfile.sizeLongestPlateau
+-Test 2/5 : IntegerProfile.sizeLongestPlateau
+Incorrect program result
+Input         : IntegerProfile([2,3,3,1,1,1,5,4,4,4,4,3,3,3]).sizeLongestPlateau()
+Program  Ouput: 3
+Expected Ouput: 4
+Method        : sizeLongestPlateau
+-Test 3/5 : IntegerProfile.sizeLongestPlateau
+Incorrect program result
+Input         : IntegerProfile([2,3,3,1,1,1,5,4,4,4,4,3,3,3,3,3]).sizeLongestPlateau()
+Program  Ouput: 3
+Expected Ouput: 5
+Method        : sizeLongestPlateau
+-Test 4/5 : IntegerProfile.sizeLongestPlateau
+-Test 5/5 : IntegerProfile.sizeLongestPlateau
+Incorrect program result
+Input         : IntegerProfile([12]).sizeLongestPlateau()
+Program  Ouput: 12
+Expected Ouput: 1
+Method        : sizeLongestPlateau
+--|>
+Grade :=>> 40
+

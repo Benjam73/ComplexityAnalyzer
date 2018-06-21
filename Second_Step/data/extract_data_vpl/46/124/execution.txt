@@ -1,0 +1,13 @@
+Attention vos devez respecter
+le squelette de code initial.
+Vous avez change le nom ou
+le type de retour ou
+les arguments (nombre et/ou types)
+de la methode: Tools.fastNumberOfCancellations([I)
+
+You have change the signature
+of a required method,
+please respect the initial code.
+Check that you have not changed
+the name or the return type or
+the arguments of the method: Tools.fastNumberOfCancellations([I)

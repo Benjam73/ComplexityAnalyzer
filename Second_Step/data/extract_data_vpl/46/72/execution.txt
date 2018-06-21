@@ -1,0 +1,39 @@
+<|--
+-Tests results
+-Test 1/10 : Tools.numberOfCancellations
+-Test 2/10 : Tools.numberOfCancellations
+-Test 3/10 : Tools.numberOfCancellations
+-Test 4/10 : Tools.numberOfCancellations
+-Test 5/10 : Tools.numberOfCancellations
+-Test 6/10 : Tools.fastNumberOfCancellations
+Incorrect program result
+Input         : hidden
+Message       : java.lang.ArrayIndexOutOfBoundsException: 11
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : fastNumberOfCancellations
+-Test 7/10 : Tools.fastNumberOfCancellations
+Incorrect program result
+Input         : hidden
+Message       : java.lang.ArrayIndexOutOfBoundsException: 8
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : fastNumberOfCancellations
+-Test 8/10 : Tools.fastNumberOfCancellations
+Incorrect program result
+Input         : hidden
+Message       : java.lang.ArrayIndexOutOfBoundsException: 11
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : fastNumberOfCancellations
+-Test 9/10 : Tools.fastNumberOfCancellations
+Incorrect program result
+Input         : hidden
+Message       : java.lang.ArrayIndexOutOfBoundsException: 11
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : fastNumberOfCancellations
+-Test 10/10 : Tools.fastNumberOfCancellations
+--|>
+Grade :=>> 60
+

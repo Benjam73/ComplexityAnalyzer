@@ -1,0 +1,9 @@
+-Test 1/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [9,9,21]
+Expected Ouput: [8,9,21]
+Method        : podium
+-Test 2/5 : Scores.podium
+-Test 3/5 : Scores.podium
+-Test 4/5 : Scores.podium
+-Test 5/5 : Scores.podium

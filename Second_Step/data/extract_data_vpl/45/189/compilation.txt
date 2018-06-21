@@ -1,0 +1,12 @@
+Executable.java:33: error: incompatible types
+        return tableau;
+               ^
+  required: int[]
+  found:    Tools
+1 error
+./Executable.java:33: error: incompatible types
+        return tableau;
+               ^
+  required: int[]
+  found:    Tools
+1 error

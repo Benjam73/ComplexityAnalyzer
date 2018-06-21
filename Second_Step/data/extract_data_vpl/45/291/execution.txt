@@ -1,0 +1,1 @@
+/home/p15182/vpl_execution: line 2: 17798 Killed                  java -Xmx64M -Xms64M -enableassertions caseine.CasesAnalyser .

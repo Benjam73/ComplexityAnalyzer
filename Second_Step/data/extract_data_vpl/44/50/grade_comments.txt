@@ -1,0 +1,9 @@
+-The compilation or preparation of execution has failed
+Scores.java:28: error: ']' expected
+        int[] podium = int[3];
+                           ^
+Scores.java:28: error: ';' expected
+        int[] podium = int[3];
+                            ^
+2 errors
+Not compiled
