@@ -1,0 +1,80 @@
+<|--
+-Tests results
+-Test 1/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : Vpl_tests().sortBubble({0;0;0;2;3;3;1;1;1;5;3;3})
+Program  Ouput: [0,0,0,2,3,1,1,1,3,3,3,5]
+Expected Ouput: [0,0,0,1,1,1,2,3,3,3,3,5]
+Method        : sortBubble
+-Test 2/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : Vpl_tests().sortBubble({0;0;0;2;30;3;1;10;11;1;5;3;3;0})
+Program  Ouput: [0,0,0,2,3,1,10,11,1,5,3,3,0,30]
+Expected Ouput: [0,0,0,0,1,1,2,3,3,3,5,10,11,30]
+Method        : sortBubble
+-Test 3/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : hidden
+Program  Ouput: [2,3,1,10,11,1,5,3,8,30,1000]
+Expected Ouput: hidden
+Method        : sortBubble
+-Test 4/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : hidden
+Program  Ouput: [1,23,890,3,9023]
+Expected Ouput: hidden
+Method        : sortBubble
+-Test 5/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : hidden
+Program  Ouput: [0,1,12,23,890,3,9023]
+Expected Ouput: hidden
+Method        : sortBubble
+-Test 6/14 : Vpl_tests.sortBubble
+-Test 7/14 : Vpl_tests.sortBubble
+-Test 8/14 : Vpl_tests.sortBubble
+-Test 9/14 : Vpl_tests._test1MyBubbleSort
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method _test1MyBubbleSort of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _test1MyBubbleSort
+-Test 10/14 : Vpl_tests._testRandomMyBubbleSort1
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method _testRandomMyBubbleSort1 of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort1
+-Test 11/14 : Vpl_tests._testRandomGeneration1
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method _testRandomGeneration1 of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomGeneration1
+-Test 12/14 : Vpl_tests._testRandomGeneration2
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method isEqual of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomGeneration2
+-Test 13/14 : Vpl_tests._testRandomMyBubbleSort2
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method _testRandomMyBubbleSort1 of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort2
+-Test 14/14 : Vpl_tests._testRandomMyBubbleSort3
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException: one of your object used by the method _testRandomMyBubbleSort1 of class Vpl_tests is null, i.e it has not been created. You are forgetting a "new" somewhere.
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort3
+--|>
+Grade :=>> 15
+

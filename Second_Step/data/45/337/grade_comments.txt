@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Tools.java:15: error: cannot find symbol
+                    swap (tab,j,j+1);
+                    ^
+  symbol:   method swap(int[],int,int)
+  location: class Tools
+1 error
+Not compiled

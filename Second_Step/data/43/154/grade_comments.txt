@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+IntegerProfile.java:46: error: cannot find symbol
+        return plateauDernier;
+               ^
+  symbol:   variable plateauDernier
+  location: class IntegerProfile
+1 error
+Not compiled

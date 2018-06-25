@@ -1,0 +1,57 @@
+-Tests results
+-Test 1/14 : Vpl_tests.sortBubble
+-Test 2/14 : Vpl_tests.sortBubble
+-Test 3/14 : Vpl_tests.sortBubble
+-Test 4/14 : Vpl_tests.sortBubble
+-Test 5/14 : Vpl_tests.sortBubble
+-Test 6/14 : Vpl_tests.sortBubble
+-Test 7/14 : Vpl_tests.sortBubble
+-Test 8/14 : Vpl_tests.sortBubble
+Incorrect program result
+Input         : hidden
+Message       : "negative numbers in the array"
+Program  Ouput: [1,-1]
+Expected Ouput: hidden
+Method        : sortBubble
+-Test 9/14 : Vpl_tests._test1MyBubbleSort
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _test1MyBubbleSort
+-Test 10/14 : Vpl_tests._testRandomMyBubbleSort1
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort1
+-Test 11/14 : Vpl_tests._testRandomGeneration1
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomGeneration1
+-Test 12/14 : Vpl_tests._testRandomGeneration2
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomGeneration2
+-Test 13/14 : Vpl_tests._testRandomMyBubbleSort2
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort2
+-Test 14/14 : Vpl_tests._testRandomMyBubbleSort3
+Incorrect program result
+Input         : hidden
+Message       : java.lang.NullPointerException
+Program  Ouput: null
+Expected Ouput: hidden
+Method        : _testRandomMyBubbleSort3

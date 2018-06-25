@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Tools.java:16: error: cannot find symbol
+                echanger(tab,i,i++);
+                ^
+  symbol:   method echanger(int[],int,int)
+  location: class Tools
+1 error
+Not compiled

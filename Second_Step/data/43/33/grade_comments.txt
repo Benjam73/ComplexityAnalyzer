@@ -1,0 +1,6 @@
+-The compilation or preparation of execution has failed
+IntegerProfile.java:40: reached end of file while parsing
+}
+ ^
+1 error
+Not compiled

@@ -1,0 +1,30 @@
+<|--
+-Tests results
+-Test 1/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [0,0,0]
+Expected Ouput: [8,9,21]
+Method        : podium
+-Test 2/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [0,0,0]
+Expected Ouput: [27,27,89]
+Method        : podium
+-Test 3/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [0,0,0]
+Expected Ouput: [279,899,4000]
+Method        : podium
+-Test 4/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [0,0,0]
+Expected Ouput: [1,1,3]
+Method        : podium
+-Test 5/5 : Scores.podium
+Incorrect program result
+Program  Ouput: [0,0,0]
+Expected Ouput: [2,2,12]
+Method        : podium
+--|>
+Grade :=>> 0
+

@@ -1,5 +1,6 @@
 package jus.stage.samples;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +38,69 @@ public class BubbleSort {
 			tmp++;
 			tmp++;
 		}
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		for (i = 0; i < T.length; i++) {
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+			tmp++;
+		}
+		int[] copy = Arrays.copyOf(T, T.length);
+		copy = MergeSort.mergeSort(copy);
+
 		for (i = T.length; i != 0; i--) {
 			for (j = 0; j < i - 1; j++) {
 				if (T[j + 1] < T[j]) {
@@ -70,7 +134,7 @@ public class BubbleSort {
 				long durationTime = 0;
 
 				long BeginTime = System.currentTimeMillis();
-				tab = bubbleSort(tab);
+				tab = bubbleSortBis(tab);
 				long EndTime = System.currentTimeMillis();
 				durationTime += EndTime - BeginTime;
 				samples.put(size, durationTime);

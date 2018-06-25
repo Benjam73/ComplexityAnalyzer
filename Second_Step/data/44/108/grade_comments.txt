@@ -1,0 +1,23 @@
+-The compilation or preparation of execution has failed
+Scores.java:35: error: cannot find symbol
+    this.scores.remove(imax);
+               ^
+  symbol:   method remove(int)
+  location: variable scores of type int[]
+Scores.java:40: error: cannot find symbol
+        int m1 = this.scores.max();
+                            ^
+  symbol:   method max()
+  location: variable scores of type int[]
+Scores.java:41: error: cannot find symbol
+        int m2 = this.scores.max();
+                            ^
+  symbol:   method max()
+  location: variable scores of type int[]
+Scores.java:42: error: cannot find symbol
+        int m3 = this.scores.max();
+                            ^
+  symbol:   method max()
+  location: variable scores of type int[]
+4 errors
+Not compiled

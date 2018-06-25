@@ -1,0 +1,18 @@
+-The compilation or preparation of execution has failed
+Executable.java:9: error: ';' expected
+        int[] scores1= new int[7] scores {1,6,2,8,0,4,9};
+                                 ^
+Executable.java:9: error: not a statement
+        int[] scores1= new int[7] scores {1,6,2,8,0,4,9};
+                                  ^
+Executable.java:9: error: ';' expected
+        int[] scores1= new int[7] scores {1,6,2,8,0,4,9};
+                                        ^
+Executable.java:9: error: not a statement
+        int[] scores1= new int[7] scores {1,6,2,8,0,4,9};
+                                          ^
+Executable.java:9: error: ';' expected
+        int[] scores1= new int[7] scores {1,6,2,8,0,4,9};
+                                           ^
+5 errors
+Not compiled

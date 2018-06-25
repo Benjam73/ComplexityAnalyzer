@@ -1,0 +1,26 @@
+<|--
+-Tests results
+-Test 1/11 : ReactorPlanner.maxProfit
+Incorrect program result
+Input         : ReactorPlanner([7,-5,2,1,-6,3,-1,2,-5,6,-3,2,3,-4,2]).maxProfit()
+Program  Ouput: 7
+Expected Ouput: 8
+Method        : maxProfit
+-Test 2/11 : ReactorPlanner.maxProfit
+-Test 3/11 : ReactorPlanner.maxProfit
+-Test 4/11 : ReactorPlanner.maxProfit
+-Test 5/11 : ReactorPlanner.maxProfit
+-Test 6/11 : ReactorPlanner.maxProfit
+-Test 7/11 : ReactorPlanner.maxProfit
+-Test 8/11 : ReactorPlanner.maxProfit
+-Test 9/11 : ReactorPlanner.maxProfit
+-Test 10/11 : ReactorPlanner.maxProfit
+-Test 11/11 : ReactorPlanner.maxProfit
+Incorrect program result
+Input         : hidden
+Program  Ouput: 7
+Expected Ouput: hidden
+Method        : maxProfit
+--|>
+Grade :=>> 85
+

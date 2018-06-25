@@ -1,0 +1,17 @@
+Tools.java:19: error: cannot find symbol
+                    echanger(tab, j, j+1);
+                    ^
+  symbol:   method echanger(int[],int,int)
+  location: class Tools
+1 error
+Vpl_tests.java:6: error: cannot find symbol
+        Tools.sortBubble(array);
+             ^
+  symbol:   method sortBubble(int[])
+  location: class Tools
+./Tools.java:19: error: cannot find symbol
+                    echanger(tab, j, j+1);
+                    ^
+  symbol:   method echanger(int[],int,int)
+  location: class Tools
+2 errors

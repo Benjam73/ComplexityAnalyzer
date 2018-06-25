@@ -178,7 +178,7 @@ public class LinearRegression {
 		String output = "";
 
 		System.out.println("The linear regression gives : ");
-		output += "H(x) =" + resultArray[0] + " + ";
+		output += "H(n) =" + resultArray[0] + " + ";
 		for (int i = 1; i < resultArray.length - 1; i++) {
 			output += resultArray[i] + getComplexity(i) + ") + ";
 		}

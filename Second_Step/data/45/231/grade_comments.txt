@@ -1,0 +1,9 @@
+-The compilation or preparation of execution has failed
+Tools.java:38: error: class, interface, or enum expected
+    public static int[] test1MyBubbleSort() {
+                  ^
+Tools.java:55: error: class, interface, or enum expected
+    public static int[] testRandomMyBubbleSort(int n, int seed) {
+                  ^
+2 errors
+Not compiled

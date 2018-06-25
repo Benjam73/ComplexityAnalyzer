@@ -1,0 +1,9 @@
+<|--
+-Test 1/5 : IntegerProfile.sizeLongestPlateau
+-Test 2/5 : IntegerProfile.sizeLongestPlateau
+-Test 3/5 : IntegerProfile.sizeLongestPlateau
+-Test 4/5 : IntegerProfile.sizeLongestPlateau
+-Test 5/5 : IntegerProfile.sizeLongestPlateau
+--|>
+Grade :=>> 100
+

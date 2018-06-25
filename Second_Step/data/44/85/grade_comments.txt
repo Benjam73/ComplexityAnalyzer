@@ -1,0 +1,15 @@
+-The compilation or preparation of execution has failed
+Scores.java:68: error: class, interface, or enum expected
+    public void echange(int a, int b){ //permet d'échanger deux valeurs dans le tableau résultat
+           ^
+Scores.java:70: error: class, interface, or enum expected
+        this.resultats[a] = this.resultats[b];
+        ^
+Scores.java:71: error: class, interface, or enum expected
+        this.resultats[b] = tamp;
+        ^
+Scores.java:72: error: class, interface, or enum expected
+    }
+    ^
+4 errors
+Not compiled

@@ -1,0 +1,11 @@
+-Tests results
+-Test 1/10 : ReactorPlanner.maxProfit
+-Test 2/10 : ReactorPlanner.maxProfit
+-Test 3/10 : ReactorPlanner.maxProfit
+-Test 4/10 : ReactorPlanner.maxProfit
+-Test 5/10 : ReactorPlanner.maxProfit
+-Test 6/10 : ReactorPlanner.maxProfit
+-Test 7/10 : ReactorPlanner.maxProfit
+-Test 8/10 : ReactorPlanner.maxProfit
+-Test 9/10 : ReactorPlanner.maxProfit
+-Test 10/10 : ReactorPlanner.maxProfit

@@ -1,0 +1,13 @@
+-The compilation or preparation of execution has failed
+IntegerProfile.java:30: cannot find symbol
+symbol  : variable profil
+location: class IntegerProfile
+        int [] liste= new int[this.profil.lenght()];
+                                  ^
+IntegerProfile.java:32: cannot find symbol
+symbol  : variable profil
+location: class IntegerProfile
+        for (int i=0;i<profil.length()-1;i++){
+                       ^
+2 errors
+Not compiled

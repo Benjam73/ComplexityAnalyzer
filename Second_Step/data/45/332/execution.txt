@@ -1,0 +1,10 @@
+
+Comment :=>>-The compilation or preparation of execution has failed
+<|--
+Tools.java:30: error: missing return statement
+    }
+    ^
+1 error
+Not compiled
+--|>
+Grade :=>>0.00000

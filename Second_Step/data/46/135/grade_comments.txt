@@ -1,0 +1,8 @@
+-The compilation or preparation of execution has failed
+Tools.java:30: error: cannot find symbol
+    		Arrays.sort(tab1);
+    		^
+  symbol:   variable Arrays
+  location: class Tools
+1 error
+Not compiled

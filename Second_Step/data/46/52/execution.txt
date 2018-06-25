@@ -1,0 +1,18 @@
+<|--
+-Tests results
+-Test 1/10 : Tools.numberOfCancellations
+-Test 2/10 : Tools.numberOfCancellations
+-Test 3/10 : Tools.numberOfCancellations
+-Test 4/10 : Tools.numberOfCancellations
+-Test 5/10 : Tools.numberOfCancellations
+-Test 6/10 : Tools.fastNumberOfCancellations
+-Test 7/10 : Tools.fastNumberOfCancellations
+-Test 8/10 : Tools.fastNumberOfCancellations
+-Test 9/10 : Tools.fastNumberOfCancellations
+-Test 10/10 : Tools.fastNumberOfCancellations
+--|>
+Grade :=>> 100
+java.lang.InterruptedException: sleep interrupted
+
+	at java.lang.Thread.sleep(Native Method)
+	at caseine.TestCase$TimeOutThread.run(TestCase.java:452)

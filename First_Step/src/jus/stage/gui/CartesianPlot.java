@@ -211,16 +211,18 @@ public class CartesianPlot extends Application {
 				System.out.println("Error for linear regression : " + residualSquareSumResult);
 				System.out.println("Error for O(log(n)) : " + residualSquareSumLog);
 				System.out.println("Error for O(n) : " + residualSquareSumN);
-				System.out.println("Error for O(nLog(n)) : " + residualSquareSumNLog);
+				// System.out.println("Error for O(nLog(n)) : " +
+				// residualSquareSumNLog);
 				System.out.println("Error for O(n^2) : " + residualSquareSumNSquare);
-				System.out.println("Error for O(n^2Log(n)) : " + residualSquareSumNSquareLog);
+				// System.out.println("Error for O(n^2Log(n)) : " +
+				// residualSquareSumNSquareLog);
 				System.out.println("Error for O(n^3) : " + residualSquareSumNCubic);
 
 				Scene scene = new Scene(lineChart, 800, 600);
 
-				// lineChart.getData().addAll(seriesObserved, seriesResult,
-				// seriesNSquare, seriesNSquareLog);
-				lineChart.getData().addAll(seriesObserved, seriesResult);
+				lineChart.getData().addAll(seriesObserved, seriesResult, seriesLog, seriesN, seriesNSquare,
+						seriesNCubic);
+				// lineChart.getData().addAll(seriesObserved, seriesResult);
 
 				stage.setScene(scene);
 				stage.show();
@@ -251,20 +253,16 @@ public class CartesianPlot extends Application {
 	private void determineComplexity(double residualSquareSumLog, double residualSquareSumN,
 			double residualSquareSumNLog, double residualSquareSumNSquare, double residualSquareSumNSquareLog,
 			double residualSquareSumNCubic) {
-		double max = Math.min(residualSquareSumLog, Math.min(residualSquareSumN, Math.min(residualSquareSumNLog,
-				Math.min(residualSquareSumNSquare, Math.min(residualSquareSumNSquareLog, residualSquareSumNCubic)))));
-		if (max == residualSquareSumLog) {
-			System.out.println("Average complexity of this algorithme is O(log(n))");
-		} else if (max == residualSquareSumN) {
-			System.out.println("Average complexity of this algorithme is O(n)");
-		} else if (max == residualSquareSumNLog) {
-			System.out.println("Average complexity of this algorithme is O(nlog(n))");
-		} else if (max == residualSquareSumNSquare) {
-			System.out.println("Average complexity of this algorithme is O(n^2)");
-		} else if (max == residualSquareSumNSquareLog) {
-			System.out.println("Average complexity of this algorithme is O(n^2log(n))");
-		} else if (max == residualSquareSumNCubic) {
-			System.out.println("Average complexity of this algorithme is O(n^3)");
+		double min = Math.min(residualSquareSumLog,
+				Math.min(residualSquareSumN, Math.min(residualSquareSumNSquare, residualSquareSumNCubic)));
+		if (min == residualSquareSumLog) {
+			System.out.println("Average complexity of this algorithm is O(log(n))");
+		} else if (min == residualSquareSumN) {
+			System.out.println("Average complexity of this algorithm is O(n)");
+		} else if (min == residualSquareSumNSquare) {
+			System.out.println("Average complexity of this algorithm is O(n^2)");
+		} else if (min == residualSquareSumNCubic) {
+			System.out.println("Average complexity of this algorithm is O(n^3)");
 		}
 	}
 

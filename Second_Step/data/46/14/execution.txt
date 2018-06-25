@@ -1,0 +1,10 @@
+<|--
+-Test 1/6 : Tools.numberOfCancellations
+-Test 2/6 : Tools.numberOfCancellations
+-Test 3/6 : Tools.fastNumberOfCancellations
+-Test 4/6 : Tools.fastNumberOfCancellations
+-Test 5/6 : Tools.fastNumberOfCancellations
+-Test 6/6 : Tools.numberOfCancellations
+--|>
+Grade :=>> 100
+
