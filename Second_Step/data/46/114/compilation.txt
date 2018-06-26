@@ -1,7 +1,0 @@
-Tools.java:14: error: missing return statement
-    }
-    ^
-Tools.java:23: error: missing return statement
-    }
-    ^
-2 errors

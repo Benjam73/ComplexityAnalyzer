@@ -1,8 +1,0 @@
-An execution error has occured !
-Go back to eclipse and test your code
-java.lang.IllegalArgumentException: Argument is not an array
-	at java.lang.reflect.Array.get(Native Method)
-	at caseine.TestCase.compareResults(TestCase.java:341)
-	at caseine.TestCase.runTestCase(TestCase.java:333)
-	at caseine.CasesAnalyser.runAllTests(CasesAnalyser.java:60)
-	at caseine.CasesAnalyser.main(CasesAnalyser.java:106)

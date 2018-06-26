@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-Executable.java:10: error: ';' expected
-    Tools sortBubble(int[]tab);
-                    ^
-Executable.java:10: error: ';' expected
-    Tools sortBubble(int[]tab);
-                             ^
-2 errors
-Not compiled

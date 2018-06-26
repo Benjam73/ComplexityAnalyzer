@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-IntegerProfile.java:44: error: missing return statement
-}
-^
-1 error
-Not compiled

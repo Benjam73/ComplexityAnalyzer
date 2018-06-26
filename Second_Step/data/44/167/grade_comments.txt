@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Scores.java:50: error: class, interface, or enum expected
-}
-^
-1 error
-Not compiled

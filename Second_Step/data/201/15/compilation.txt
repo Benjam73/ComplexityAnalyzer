@@ -1,4 +1,0 @@
-Towers.java:50: error: missing return statement
-    }
-    ^
-1 error

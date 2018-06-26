@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Scores.java:43: error: missing return statement
-    }
-    ^
-1 error
-Not compiled

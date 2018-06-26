@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-Executable.java:23: error: '.class' expected
-        return(tools.sortBubble(int[] count));
-                                      ^
-Executable.java:23: error: ';' expected
-        return(tools.sortBubble(int[] count));
-                                            ^
-2 errors
-Not compiled

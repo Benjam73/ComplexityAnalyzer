@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-IntegerProfile.java:39: error: ')' expected
-    return(Math.max(si)
-                       ^
-IntegerProfile.java:42: error: reached end of file while parsing
-}
- ^
-2 errors
-Not compiled

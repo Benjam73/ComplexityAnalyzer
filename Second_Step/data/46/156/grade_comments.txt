@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:27: error: '.class' expected
-        tri(tab[]);
-                 ^
-1 error
-Not compiled

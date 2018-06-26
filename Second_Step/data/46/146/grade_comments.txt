@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:25: error: class, interface, or enum expected
-    public static int fastNumberOfCancellations(int[] tab) {
-                  ^
-1 error
-Not compiled

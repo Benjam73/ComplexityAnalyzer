@@ -1,4 +1,0 @@
-Tools.java:33: error: missing return statement
-    }
-    ^
-1 error

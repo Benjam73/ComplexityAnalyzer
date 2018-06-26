@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-IntegerProfile.java:35: error: not a statement
-        for(int i=sizeTot;i<this.profile.length;i+j){
-                                                 ^
-1 error
-Not compiled

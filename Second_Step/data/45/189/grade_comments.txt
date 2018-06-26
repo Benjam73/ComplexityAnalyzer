@@ -1,8 +1,0 @@
--The compilation or preparation of execution has failed
-Executable.java:33: error: incompatible types
-        return tableau;
-               ^
-  required: int[]
-  found:    Tools
-1 error
-Not compiled

@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:14: error: illegal start of expression
-                    this.swap(this.tab[],j,j+1);
-                                       ^
-1 error
-Not compiled

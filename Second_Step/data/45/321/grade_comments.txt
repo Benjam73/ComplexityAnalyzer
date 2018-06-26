@@ -1,6 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:26: error: reached end of file while parsing
-}
- ^
-1 error
-Not compiled

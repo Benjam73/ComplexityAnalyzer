@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-Scores.java:66: error: not a statement
-        for(int i=Math.max(k,l);i<=this.scores.length;i+1){
-                                                       ^
-Scores.java:83: error: class, interface, or enum expected
-}
-^
-2 errors
-Not compiled

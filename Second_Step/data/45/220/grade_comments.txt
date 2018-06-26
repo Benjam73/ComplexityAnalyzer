@@ -1,8 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:18: error: cannot find symbol
-                    echange(tab,tab[i],tab[i+1]);
-                    ^
-  symbol:   method echange(int[],int,int)
-  location: class Tools
-1 error
-Not compiled

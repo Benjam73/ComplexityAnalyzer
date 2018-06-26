@@ -1,7 +1,0 @@
-An execution error has occured !
-Go back to eclipse and test your code
-java.lang.NullPointerException
-	at caseine.TestCase.compareResults(TestCase.java:402)
-	at caseine.TestCase.runTestCase(TestCase.java:397)
-	at caseine.CasesAnalyser.runAllTests(CasesAnalyser.java:39)
-	at caseine.CasesAnalyser.main(CasesAnalyser.java:84)

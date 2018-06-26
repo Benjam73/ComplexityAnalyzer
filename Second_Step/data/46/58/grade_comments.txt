@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-Tools.java:13: error: illegal start of expression
-        this.tab[]=tab[];
-                 ^
-Tools.java:13: error: '.class' expected
-        this.tab[]=tab[];
-                        ^
-2 errors
-Not compiled

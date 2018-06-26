@@ -1,9 +1,0 @@
--The compilation or preparation of execution has failed
-Scores.java:43: error: <identifier> expected
-            podium[0]=scores.
-                             ^
-Scores.java:50: error: reached end of file while parsing
-}
- ^
-2 errors
-Not compiled
