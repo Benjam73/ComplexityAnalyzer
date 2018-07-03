@@ -1,5 +1,0 @@
--Test 1/5 : Scores.podium
--Test 2/5 : Scores.podium
--Test 3/5 : Scores.podium
--Test 4/5 : Scores.podium
--Test 5/5 : Scores.podium

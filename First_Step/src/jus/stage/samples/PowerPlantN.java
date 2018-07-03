@@ -27,6 +27,7 @@ public class PowerPlantN {
 		HashMap<Integer, Long> samples = new HashMap<>();
 		if (sampleNumber > 0) {
 			for (int i = 0; i < Settings.nPowerPlantN.length; i++) {
+
 				int size = Settings.nPowerPlantN[i];
 				int max = 0;
 				int[] tab = new int[size];
@@ -65,12 +66,13 @@ public class PowerPlantN {
 	public static void main(String[] args) {
 		try {
 			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
-
+			double time = 0;
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println("For an array of " + entry.getKey() + " elements , it takes" + " : "
 						+ entry.getValue() + " ms.");
+				time += entry.getValue();
 			}
-
+			System.out.println("time : " + time / 1000 + " s.");
 		} catch (Exception e) {
 			e.getMessage();
 			e.printStackTrace();

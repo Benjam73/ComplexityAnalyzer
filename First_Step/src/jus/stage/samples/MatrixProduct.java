@@ -83,12 +83,13 @@ public class MatrixProduct {
 	public static void main(String[] args) {
 		try {
 			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
-
+			double time = 0;
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println("For an array of " + entry.getKey() + " elements , it takes" + " : "
 						+ entry.getValue() + " ms.");
+				time += entry.getValue();
 			}
-
+			System.out.println("time : " + time / 1000);
 		} catch (Exception e) {
 			e.getMessage();
 			e.printStackTrace();

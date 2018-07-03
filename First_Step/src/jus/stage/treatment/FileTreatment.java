@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -76,7 +75,6 @@ public class FileTreatment {
 			}
 			String everything = sb.toString();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return working;
@@ -93,7 +91,7 @@ public class FileTreatment {
 					workingDirectory.add(entry.getKey());
 				}
 			} catch (Exception e) {
-				// System.out.println(e.getMessage());
+				System.out.println(e.getMessage());
 			}
 		}
 		return workingDirectory;
@@ -105,11 +103,10 @@ public class FileTreatment {
 			Runtime rt = Runtime.getRuntime();
 			try {
 				char[] copy = Arrays.copyOfRange(tmp.toCharArray(), 5, tmp.length());
-				System.out.println(copy);
-				String temp = "cp -r " + tmp + " sample/" + new String(copy);
-				Process pr = rt.exec(temp);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				String temp = "cp -R " + tmp + " sample/" + new String(copy);
+				// Process pr = rt.exec(temp);
+				System.out.println(tmp);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

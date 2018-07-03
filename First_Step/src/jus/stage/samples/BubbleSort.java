@@ -26,81 +26,17 @@ public class BubbleSort {
 	public static int[] bubbleSortBis(int[] T) {
 		int i, j;
 		int tmp = 0;
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		for (i = 0; i < T.length; i++) {
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-			tmp++;
-		}
-		int[] copy = Arrays.copyOf(T, T.length);
-		copy = MergeSort.mergeSort(copy);
+		for (int k = 0; k < Settings.k1; k++) {
+			for (i = 0; i < T.length; i++) {
+				tmp++;
 
+			}
+		}
+
+		for (int kbis = 0; kbis < Settings.k2; kbis++) {
+			int[] copy = Arrays.copyOf(T, T.length);
+			copy = MergeSort.mergeSort(copy);
+		}
 		for (i = T.length; i != 0; i--) {
 			for (j = 0; j < i - 1; j++) {
 				if (T[j + 1] < T[j]) {
@@ -164,12 +100,13 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		try {
 			HashMap<Integer, Long> samples = getSamples(Settings.nbSample);
-
+			double time = 0;
 			for (Map.Entry<Integer, Long> entry : samples.entrySet()) {
 				System.out.println("For an array of " + entry.getKey() + " elements , it takes" + " : "
 						+ entry.getValue() + " ms.");
+				time += entry.getValue();
 			}
-
+			System.out.println("tme : " + time / 1000 + " s.");
 		} catch (Exception e) {
 			e.getMessage();
 			e.printStackTrace();
