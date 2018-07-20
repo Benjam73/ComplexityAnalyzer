@@ -46,7 +46,7 @@ public class CartesianPlot extends Application {
 	public void start(Stage stage) {
 
 		for (String param : getParameters().getRaw()) {
-			for (int tmp = 0; tmp < 100; tmp++) {
+			for (int tmp = 0; tmp < 1; tmp++) {
 				System.out.println("tmp ; " + tmp);
 				stage.setTitle(param);
 				// defining the axes
@@ -268,12 +268,13 @@ public class CartesianPlot extends Application {
 			System.out.println("Average complexity of this algorithm is O(log(n))");
 		} else if (min == residualSquareSumN) {
 			System.out.println("Average complexity of this algorithm is O(n)");
+
 		} else if (min == residualSquareSumNSquare) {
 			System.out.println("Average complexity of this algorithm is O(n^2)");
-			return 1;
+
 		} else if (min == residualSquareSumNCubic) {
 			System.out.println("Average complexity of this algorithm is O(n^3)");
-
+			return 1;
 		}
 		return 0;
 	}
